@@ -2,7 +2,7 @@ import java.io.*;
 
 import static java.lang.System.out;
 
-public class InfoFile {
+public class Ejemplo1 {
 
     public static void main(String args[]) throws IOException {
 
