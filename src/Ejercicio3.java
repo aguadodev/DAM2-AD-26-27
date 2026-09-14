@@ -8,23 +8,42 @@ public class Ejercicio3 {
         while (opcion >= 1 && opcion <= 4) {
             switch (opcion) {
                 case 1:
-
+                    crearDirectorio();
                     break;
                 case 2:
-
+                    listarDirectorioRecursivo();
                     break;
                 case 3:
-
+                    eliminarArchivoODirectorio();
                     break;
                 case 4:
-
+                    moverArchivoODirectorio();
                     break;
-
                 default:
                     break;
             }
             opcion = opcionMenu();
         }
+    }
+
+    private static void moverArchivoODirectorio() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'moverArchivoODirectorio'");
+    }
+
+    private static void eliminarArchivoODirectorio() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'eliminarArchivoODirectorio'");
+    }
+
+    private static void listarDirectorioRecursivo() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'listarDirectorioRecursivo'");
+    }
+
+    private static void crearDirectorio() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'crearDirectorio'");
     }
 
     private static int opcionMenu() {
