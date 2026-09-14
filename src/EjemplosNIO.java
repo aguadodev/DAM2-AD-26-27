@@ -57,14 +57,24 @@ public class EjemplosNIO {
         Path path2d = fileSystem.getPath("c:\\users\\usuarioa\\notas.txt");
         Path path3d = fileSystem.getPath("/home/usuarioa");
 
-        try {
+        /*try {
             fileSystem = FileSystems.getFileSystem(new URI("https://www.imdb.com"));
             Path pathImdb = fileSystem.getPath("top250.txt");
             System.out.println(Files.exists(pathImdb));
 
         } catch (URISyntaxException e) {
 
-        }        
+        }*/
+
+        Path p = Path.of("ballena");
+        p = p.resolve("krill"); // Se pierde, debería guardarse en otro Path.
+        System.out.println(p); // ballena
+
+        p = Path.of("/zoo/../home");
+        p = p.getParent();
+        p = p.normalize();
+        p = p.toAbsolutePath();
+        System.out.println(p);
 
     }
 }

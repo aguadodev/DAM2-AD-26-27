@@ -50,16 +50,26 @@ public class Ejercicio3ASC {
         System.out.println("\nSelecciona en la ventana donde quieres crear la carpeta...");
         selector.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int respuesta = selector.showOpenDialog(null);
+        File carpetaPadre;
+        if (respuesta == JFileChooser.APPROVE_OPTION) {
+            carpetaPadre = selector.getSelectedFile();
+        } else {
+            System.out.println("Directorio no valido");
+            return;
+        }
 
-        File carpetaPadre = selector.getSelectedFile();
         System.out.print("Introduce el nombre de la nueva carpeta: ");
         String nuevoNombre = teclado.nextLine();
 
         File nuevaCarpeta = new File(carpetaPadre, nuevoNombre);
-        if (nuevaCarpeta.mkdir()) {
-            System.out.println("Directorio creado con exito en: " + nuevaCarpeta.getAbsolutePath());
+        if (nuevaCarpeta.exists()) {
+            System.out.println("El directorio ya existe");
         } else {
-            System.out.println("No se pudo crear (quiza ya existe).");
+            if (nuevaCarpeta.mkdir()) {
+                System.out.println("Directorio creado con exito en: " + nuevaCarpeta.getAbsolutePath());
+            } else {
+                System.out.println("No se pudo crear.");
+            }
         }
 
     }
@@ -79,6 +89,10 @@ public class Ejercicio3ASC {
     // El metodo recursivo que se llama a si mismo
     private static void listarRecursivo(File carpeta, String sangria) {
         File[] elementos = carpeta.listFiles();
+
+        if (elementos == null) {
+            return;
+        }
 
         for (File f : elementos) {
             if (f.isDirectory()) {
