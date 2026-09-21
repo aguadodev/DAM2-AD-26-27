@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -19,9 +20,11 @@ public class ParticipacionEnClase {
             List<String> alumnos = in.readAllLines();
             Random rnd = new Random();
             String alumno = alumnos.get(rnd.nextInt(alumnos.size()));
+            System.out.println();
             System.out.println("El elegido es..." + alumno);
 
             // participaciones.txt
+            System.out.println();
             System.out.println("Añadiendo alumno a DATOS/participaciones.txt");
             out.write(LocalDateTime.now() + " - " + alumno + "\n");     
         } catch (FileNotFoundException e) {

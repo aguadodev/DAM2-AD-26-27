@@ -1,3 +1,4 @@
+package ud1;
 import java.io.*;
 
 import static java.lang.System.out;
