@@ -11,7 +11,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 
-public class CrearAlumnoXML {
+public class CrearAlumno2XML {
 
     public static void main(String[] args) throws Exception {
 
@@ -34,12 +34,15 @@ public class CrearAlumnoXML {
 
         alumno.appendChild(nombre);
 
-        // <curso>
-        Element curso = documento.createElement("curso");
-
-        curso.setTextContent("2 DAM");
-
-        alumno.appendChild(curso);
+        // <ciclo>
+        Element ciclo = documento.createElement("ciclo");
+        alumno.appendChild(ciclo);
+        Element nombreCiclo = documento.createElement("nombre");
+        nombreCiclo.setTextContent("DAM");
+        ciclo.appendChild(nombreCiclo);
+        Element cursoCiclo = documento.createElement("curso");
+        cursoCiclo.setTextContent("DAM");
+        ciclo.appendChild(cursoCiclo);
 
         // <nota>
         Element nota = documento.createElement("nota");
@@ -58,6 +61,6 @@ public class CrearAlumnoXML {
 
         transformer.transform(
                 new DOMSource(documento),
-                new StreamResult(new File("DATOS/alumno.xml")));
+                new StreamResult(new File("DATOS/alumno2.xml")));
     }
 }

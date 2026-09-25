@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<alumno>
+    <nombre>Ana García</nombre>
+    <ciclo>
+        <nombre>DAM</nombre>
+        <curso>DAM</curso>
+    </ciclo>
+    <nota>8.5</nota>
+</alumno>

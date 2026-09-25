@@ -27,7 +27,7 @@ public class AnalizarXML {
             System.out.println("Elemento raíz: " + raiz.getNodeName());
 
             // 4. Obtener todos los elementos "alumno"
-            NodeList listaAlumnos = documento.getElementsByTagName("alumno");
+            NodeList listaAlumnos = raiz.getElementsByTagName("alumno");
 
             // 5. Recorrer los alumnos
             for (int i = 0; i < listaAlumnos.getLength(); i++) {

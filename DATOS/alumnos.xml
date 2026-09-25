@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<alumnos>
+    <alumno id="1">
+        <nombre>Ana García</nombre>
+        <curso>2 DAM</curso>
+        <modulos>
+            <modulo nombre="Programación">8.5</modulo>
+            <modulo nombre="Bases de Datos">7.0</modulo>
+            <modulo nombre="Sistemas Informáticos">9.0</modulo>
+        </modulos>
+    </alumno>
+    <alumno id="2">
+        <nombre>Pedro López</nombre>
+        <curso>2 DAM</curso>
+        <modulos>
+            <modulo nombre="Programación">6.5</modulo>
+            <modulo nombre="Bases de Datos">8.0</modulo>
+        </modulos>
+    </alumno>
+    <alumno id="3">
+        <nombre>Pepe</nombre>
+        <curso>1 DAM</curso>
+        <modulos>
+            <modulo nombre="Programación">9</modulo>
+        </modulos>
+    </alumno>    
+</alumnos>

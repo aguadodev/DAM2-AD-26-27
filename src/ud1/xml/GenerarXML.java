@@ -92,12 +92,9 @@ public class GenerarXML {
             modulos2.appendChild(basesDatos2);
 
             // 5. Guardar el documento XML en un archivo
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
 
-            Transformer transformer = transformerFactory.newTransformer();
-
-            transformer.setOutputProperty(
-                    OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
             DOMSource source = new DOMSource(documento);
 
