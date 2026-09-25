@@ -1,4 +1,4 @@
-package ud1;
+package ud1.ejemplos;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;

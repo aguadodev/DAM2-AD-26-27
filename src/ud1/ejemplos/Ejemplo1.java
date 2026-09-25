@@ -1,4 +1,4 @@
-package ud1;
+package ud1.ejemplos;
 import java.io.*;
 
 import static java.lang.System.out;

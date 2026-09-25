@@ -1,9 +1,11 @@
-package ud1;
+package ud1.ejemplos;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+
+import ud1.Persona;
 
 public class EjemploFlujoSerializado {
     public static void main(String[] args) {

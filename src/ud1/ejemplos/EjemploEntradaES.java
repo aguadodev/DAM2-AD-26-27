@@ -1,4 +1,4 @@
-package ud1;
+package ud1.ejemplos;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;

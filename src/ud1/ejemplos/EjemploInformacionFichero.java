@@ -1,4 +1,4 @@
-package ud1;
+package ud1.ejemplos;
 import java.io.*;
 import java.util.Date;
 import java.text.SimpleDateFormat;

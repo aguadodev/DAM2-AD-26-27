@@ -1,4 +1,4 @@
-package ud1;
+package ud1.ejemplos;
 import java.util.Scanner;
 
 public class Ejercicio3 {
