@@ -5,7 +5,8 @@ import java.net.URL;
 
 public class EjemploLeerURL {
     public static void main(String[] args) throws Exception {
-        URI uri = new URI("https://data.iana.org/TLD/tlds-alpha-by-domain.txt");
+        System.setProperty("java.net.useSystemProxies", "true");
+        URI uri = new URI("https://rae-api.com/api/words/amar");
         URL url = uri.toURL();
         InputStream is = url.openStream();
         InputStreamReader isr = new InputStreamReader(is);
