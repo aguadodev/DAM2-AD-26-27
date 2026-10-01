@@ -1,0 +1,59 @@
+// Objeto con 3 atributos
+{
+    "nombre": "Fernando",
+    "apellidos": "Ureña Gómez",
+    "edad": 29
+}
+// Array de 4 elementos
+{
+    "frutas": [
+        "manzana",
+        "naranja",
+        "plátano",
+        "uva"
+    ]
+}
+
+// Objeto anidado, con array y null
+{
+    "usuario": {
+        "nombre": "Edi",
+        "edad": 38,
+        "activo": true
+    },
+    "aficiones": [
+        "deporte",
+        "viajes",
+        "fotografía"
+    ],
+    "ubicacion": null
+}
+
+
+// Tienda con array de productos
+{
+    "tienda": "Electronic",
+    "productos": [
+        {
+            "id": 101,
+            "nombre": "Portátil",
+            "precio": 799.99,
+            "disponible": true,
+            "especificaciones": {
+                "marca": "TechBrand",
+                "modelo": "X200",
+                "color": "plata"
+            }
+        },
+        {
+            "id": 102,
+            "nombre": "Auriculares",
+            "precio": 99.99,
+            "disponible": false,
+            "especificaciones": {
+                "marca": "SoundTech",
+                "color": "negro"
+            }
+        }
+    ]
+}
