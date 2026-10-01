@@ -1,16 +1,16 @@
 package ud1.json;
-import java.io.Serializable;
-import java.time.LocalDate;
 
-public class Persona implements Serializable {
+import java.io.Serializable;
+
+public class Persona2 implements Serializable {
     private String nombre;
-    private LocalDate fechaNacimiento;
+    private Fecha fechaNacimiento;
     private int altura;
 
-    public Persona() {
+    public Persona2() {
     }
 
-    public Persona(String nombre, LocalDate fechaNacimiento, int altura) {
+    public Persona2(String nombre, Fecha fechaNacimiento, int altura) {
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.altura = altura;
@@ -29,11 +29,11 @@ public class Persona implements Serializable {
         this.nombre = nombre;
     }
 
-    public LocalDate getFechaNacimiento() {
+    public Fecha getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    public void setFechaNacimiento(Fecha fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -44,7 +44,5 @@ public class Persona implements Serializable {
     public void setAltura(int altura) {
         this.altura = altura;
     }
-
-    
 
 }

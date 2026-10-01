@@ -1,0 +1,668 @@
+{
+  "data": {
+    "word": "jugar",
+    "meanings": [
+      {
+        "origin": {
+          "raw": "Del lat. iocāri 'bromear'.",
+          "type": "lat",
+          "voice": "",
+          "text": "iocāri"
+        },
+        "senses": [
+          {
+            "raw": "1. intr. Hacer algo con alegría con el fin de entretenerse, divertirse o desarrollar determinadas capacidades.Sin.:juguetear.",
+            "meaning_number": 1,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Hacer algo con alegría con el fin de entretenerse, divertirse o desarrollar determinadas capacidades",
+            "synonyms": [
+              "juguetear"
+            ],
+            "antonyms": null,
+            "synonyms_v2": [
+              {
+                "word": "juguetear"
+              }
+            ]
+          },
+          {
+            "raw": "2. intr. Travesear, retozar.Sin.:trastear2, travesear, retozar, corretear.",
+            "meaning_number": 2,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Travesear, retozar",
+            "synonyms": [
+              "trastear2",
+              "travesear",
+              "retozar",
+              "corretear"
+            ],
+            "antonyms": null,
+            "synonyms_v2": [
+              {
+                "word": "trastear2"
+              },
+              {
+                "word": "travesear"
+              },
+              {
+                "word": "retozar"
+              },
+              {
+                "word": "corretear",
+                "label": "colloquial"
+              }
+            ]
+          },
+          {
+            "raw": "3. intr. Entretenerse, divertirse tomando parte en uno de los juegos sometidos a reglas, medie o no en él interés. Jugar a la pelota, al dominó.Sin.:entretenerse, divertirse, recrearse, esparcirse.",
+            "meaning_number": 3,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Entretenerse, divertirse tomando parte en uno de los juegos sometidos a reglas, medie o no en él interés",
+            "examples": [
+              "Jugar a la pelota, al dominó."
+            ],
+            "synonyms": [
+              "entretenerse",
+              "divertirse",
+              "recrearse",
+              "esparcirse"
+            ],
+            "antonyms": null,
+            "synonyms_v2": [
+              {
+                "word": "entretenerse"
+              },
+              {
+                "word": "divertirse"
+              },
+              {
+                "word": "recrearse"
+              },
+              {
+                "word": "esparcirse"
+              }
+            ]
+          },
+          {
+            "raw": "4. intr. Practicar ciertos deportes, como tenis o fútbol.Sin.:practicar.",
+            "meaning_number": 4,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Practicar ciertos deportes, como tenis o fútbol",
+            "synonyms": [
+              "practicar"
+            ],
+            "antonyms": null,
+            "synonyms_v2": [
+              {
+                "word": "practicar"
+              }
+            ]
+          },
+          {
+            "raw": "5. intr. Entregarse compulsivamente a juegos de azar.",
+            "meaning_number": 5,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Entregarse compulsivamente a juegos de azar",
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "6. intr. Dicho de un jugador: Llevar a cabo un acto propio del juego cada vez que le toca intervenir en él.",
+            "meaning_number": 6,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Dicho de un jugador: Llevar a cabo un acto propio del juego cada vez que le toca intervenir en él",
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "7. intr. En ciertos juegos de naipes, entrar (‖ tomar sobre sí el empeño de ganar una apuesta).Sin.:entrar.",
+            "meaning_number": 7,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "En ciertos juegos de naipes, entrar (‖ tomar sobre sí el empeño de ganar una apuesta)",
+            "cross_references": [
+              "entrar"
+            ],
+            "synonyms": [
+              "entrar"
+            ],
+            "antonyms": null,
+            "synonyms_v2": [
+              {
+                "word": "entrar"
+              }
+            ]
+          },
+          {
+            "raw": "8. intr. Utilizar algo tocándolo o moviéndolo sin un fin determinado o solo para entretenerse. Deja de jugar con los cubiertos.",
+            "meaning_number": 8,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Utilizar algo tocándolo o moviéndolo sin un fin determinado o solo para entretenerse",
+            "examples": [
+              "Deja de jugar con los cubiertos."
+            ],
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "9. intr. Tratar algo o a alguien sin la consideración o el respeto que merece. Estás jugando con tu salud. No juegues con él, que tiene mucho poder.",
+            "meaning_number": 9,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Tratar algo o a alguien sin la consideración o el respeto que merece",
+            "examples": [
+              "Estás jugando con tu salud.",
+              "No juegues con él, que tiene mucho poder."
+            ],
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "10. intr. Dicho de una pieza de una máquina: Ponerse en movimiento para el objeto a que está destinada.",
+            "meaning_number": 10,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Dicho de una pieza de una máquina: Ponerse en movimiento para el objeto a que está destinada",
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "11. intr. Dicho de un arma blanca o de fuego: Ser empleada para el uso a que está destinada. En tal acción jugó la bayoneta, o jugaron los cañones.",
+            "meaning_number": 11,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Dicho de un arma blanca o de fuego: Ser empleada para el uso a que está destinada",
+            "examples": [
+              "En tal acción jugó la bayoneta, o jugaron los cañones."
+            ],
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "12. intr. Dicho de una cosa: hacer juego (‖ convenir o corresponderse con otra).",
+            "meaning_number": 12,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Dicho de una cosa: hacer juego (‖ convenir o corresponderse con otra)",
+            "cross_references": [
+              "hacer juego"
+            ],
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "13. intr. Intervenir o tener parte en un asunto. Diversos factores juegan en la crisis.",
+            "meaning_number": 13,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Intervenir o tener parte en un asunto",
+            "examples": [
+              "Diversos factores juegan en la crisis."
+            ],
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "14. intr. C. Rica. Terminar un papel o misión. Ese hombre ya jugó.",
+            "meaning_number": 14,
+            "category": "verb",
+            "verb_category": "intransitive",
+            "usage": "",
+            "description": "Terminar un papel o misión",
+            "regions": [
+              {
+                "code": "CR",
+                "name": "Costa Rica"
+              }
+            ],
+            "examples": [
+              "Ese hombre ya jugó."
+            ],
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "15. tr. Desempeñar una función o un papel. Los bosques juegan un papel primordial para la vida.",
+            "meaning_number": 15,
+            "category": "verb",
+            "verb_category": "transitive",
+            "usage": "",
+            "description": "Desempeñar una función o un papel",
+            "examples": [
+              "Los bosques juegan un papel primordial para la vida."
+            ],
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "16. tr. Llevar a cabo una partida o un partido de un juego.Sin.:echar.",
+            "meaning_number": 16,
+            "category": "verb",
+            "verb_category": "transitive",
+            "usage": "",
+            "description": "Llevar a cabo una partida o un partido de un juego",
+            "synonyms": [
+              "echar"
+            ],
+            "antonyms": null,
+            "synonyms_v2": [
+              {
+                "word": "echar"
+              }
+            ]
+          },
+          {
+            "raw": "17. tr. Hacer uso de las cartas, fichas o piezas que se emplean en ciertos juegos. Jugar una carta, un alfil.Sin.:echar.",
+            "meaning_number": 17,
+            "category": "verb",
+            "verb_category": "transitive",
+            "usage": "",
+            "description": "Hacer uso de las cartas, fichas o piezas que se emplean en ciertos juegos",
+            "examples": [
+              "Jugar una carta, un alfil."
+            ],
+            "synonyms": [
+              "echar"
+            ],
+            "antonyms": null,
+            "synonyms_v2": [
+              {
+                "word": "echar"
+              }
+            ]
+          },
+          {
+            "raw": "18. tr. Apostar en el juego. Juega fuertes sumas en el casino. U. t. c. prnl.Sin.:apostar1.",
+            "meaning_number": 18,
+            "category": "verb",
+            "verb_category": "transitive",
+            "usage": "",
+            "description": "Apostar en el juego",
+            "usage_notes": [
+              "U. t. c. prnl."
+            ],
+            "examples": [
+              "Juega fuertes sumas en el casino."
+            ],
+            "synonyms": [
+              "apostar1"
+            ],
+            "antonyms": null,
+            "synonyms_v2": [
+              {
+                "word": "apostar1"
+              }
+            ]
+          },
+          {
+            "raw": "19. tr. Perder en el juego. U. m. c. prnl. Se jugó cuanto tenía.",
+            "meaning_number": 19,
+            "category": "verb",
+            "verb_category": "transitive",
+            "usage": "",
+            "description": "Perder en el juego",
+            "usage_notes": [
+              "U. m. c. prnl."
+            ],
+            "examples": [
+              "Se jugó cuanto tenía."
+            ],
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "20. tr. Usar los miembros corporales, dándoles el movimiento que les es natural.",
+            "meaning_number": 20,
+            "category": "verb",
+            "verb_category": "transitive",
+            "usage": "",
+            "description": "Usar los miembros corporales, dándoles el movimiento que les es natural",
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "21. tr. Manejar un arma. Jugar la espada, el florete.",
+            "meaning_number": 21,
+            "category": "verb",
+            "verb_category": "transitive",
+            "usage": "",
+            "description": "Manejar un arma",
+            "examples": [
+              "Jugar la espada, el florete."
+            ],
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "22. tr. El Salv. Volver tonto o medio loco a alguien.",
+            "meaning_number": 22,
+            "category": "verb",
+            "verb_category": "transitive",
+            "usage": "",
+            "description": "Volver tonto o medio loco a alguien",
+            "regions": [
+              {
+                "code": "SV",
+                "name": "El Salvador"
+              }
+            ],
+            "synonyms": null,
+            "antonyms": null
+          },
+          {
+            "raw": "23. prnl. Arriesgar, aventurar. Jugarse la vida, la carrera.Sin.:arriesgar, aventurar.",
+            "meaning_number": 23,
+            "category": "verb",
+            "verb_category": "pronominal",
+            "usage": "",
+            "description": "Arriesgar, aventurar",
+            "examples": [
+              "Jugarse la vida, la carrera."
+            ],
+            "synonyms": [
+              "arriesgar",
+              "aventurar"
+            ],
+            "antonyms": null,
+            "synonyms_v2": [
+              {
+                "word": "arriesgar"
+              },
+              {
+                "word": "aventurar"
+              }
+            ]
+          }
+        ],
+        "locutions": [
+          {
+            "expression": "jugar alguien de peligroso, o de vivo",
+            "senses": [
+              {
+                "raw": "1. locs. verbs. C. Rica. Presumir, engreírse.",
+                "meaning_number": 1,
+                "category": "noun",
+                "usage": "",
+                "description": "Presumir, engreírse",
+                "regions": [
+                  {
+                    "code": "CR",
+                    "name": "Costa Rica"
+                  }
+                ],
+                "synonyms": null,
+                "antonyms": null
+              }
+            ]
+          },
+          {
+            "expression": "jugar fuerte, o jugar grueso",
+            "senses": [
+              {
+                "raw": "1. locs. verbs. Aventurar al juego grandes cantidades.",
+                "meaning_number": 1,
+                "category": "noun",
+                "usage": "",
+                "description": "Aventurar al juego grandes cantidades",
+                "synonyms": null,
+                "antonyms": null
+              }
+            ]
+          },
+          {
+            "expression": "jugar limpio",
+            "senses": [
+              {
+                "raw": "1. loc. verb. jugar sin trampas ni engaños.",
+                "meaning_number": 1,
+                "category": "verb",
+                "usage": "",
+                "description": "jugar sin trampas ni engaños",
+                "synonyms": null,
+                "antonyms": null
+              },
+              {
+                "raw": "2. loc. verb. Proceder en un negocio o asunto con lealtad y buena fe.",
+                "meaning_number": 2,
+                "category": "verb",
+                "usage": "",
+                "description": "Proceder en un negocio o asunto con lealtad y buena fe",
+                "synonyms": null,
+                "antonyms": null
+              }
+            ]
+          },
+          {
+            "expression": "jugar sucio",
+            "senses": [
+              {
+                "raw": "1. loc. verb. Emplear trampas y engaños en el juego o en un negocio o asunto.",
+                "meaning_number": 1,
+                "category": "verb",
+                "usage": "",
+                "description": "Emplear trampas y engaños en el juego o en un negocio o asunto",
+                "synonyms": null,
+                "antonyms": null
+              }
+            ]
+          },
+          {
+            "expression": "jugársela, o jugárselas a alguien",
+            "senses": [
+              {
+                "raw": "1. locs. verbs. Comportarse con él mal o de modo desleal.",
+                "meaning_number": 1,
+                "category": "noun",
+                "usage": "",
+                "description": "Comportarse con él mal o de modo desleal",
+                "synonyms": null,
+                "antonyms": null
+              }
+            ]
+          }
+        ],
+        "conjugations": {
+          "non_personal": {
+            "infinitive": "jugar",
+            "participle": "jugado",
+            "gerund": "jugando",
+            "compound_infinitive": "haber jugado",
+            "compound_gerund": "habiendo jugado"
+          },
+          "indicative": {
+            "present": {
+              "singular_first_person": "juego",
+              "singular_second_person": "juegas / jugás",
+              "singular_formal_second_person": "juega",
+              "singular_third_person": "juega",
+              "plural_first_person": "jugamos",
+              "plural_second_person": "jugáis",
+              "plural_formal_second_person": "juegan",
+              "plural_third_person": "juegan"
+            },
+            "present_perfect": {
+              "singular_first_person": "he jugado",
+              "singular_second_person": "has jugado",
+              "singular_formal_second_person": "ha jugado",
+              "singular_third_person": "ha jugado",
+              "plural_first_person": "hemos jugado",
+              "plural_second_person": "habéis jugado",
+              "plural_formal_second_person": "han jugado",
+              "plural_third_person": "han jugado"
+            },
+            "imperfect": {
+              "singular_first_person": "jugaba",
+              "singular_second_person": "jugabas",
+              "singular_formal_second_person": "jugaba",
+              "singular_third_person": "jugaba",
+              "plural_first_person": "jugábamos",
+              "plural_second_person": "jugabais",
+              "plural_formal_second_person": "jugaban",
+              "plural_third_person": "jugaban"
+            },
+            "past_perfect": {
+              "singular_first_person": "había jugado",
+              "singular_second_person": "habías jugado",
+              "singular_formal_second_person": "había jugado",
+              "singular_third_person": "había jugado",
+              "plural_first_person": "habíamos jugado",
+              "plural_second_person": "habíais jugado",
+              "plural_formal_second_person": "habían jugado",
+              "plural_third_person": "habían jugado"
+            },
+            "preterite": {
+              "singular_first_person": "jugué",
+              "singular_second_person": "jugaste",
+              "singular_formal_second_person": "jugó",
+              "singular_third_person": "jugó",
+              "plural_first_person": "jugamos",
+              "plural_second_person": "jugasteis",
+              "plural_formal_second_person": "jugaron",
+              "plural_third_person": "jugaron"
+            },
+            "past_anterior": {
+              "singular_first_person": "hube jugado",
+              "singular_second_person": "hubiste jugado",
+              "singular_formal_second_person": "hubo jugado",
+              "singular_third_person": "hubo jugado",
+              "plural_first_person": "hubimos jugado",
+              "plural_second_person": "hubisteis jugado",
+              "plural_formal_second_person": "hubieron jugado",
+              "plural_third_person": "hubieron jugado"
+            },
+            "future": {
+              "singular_first_person": "jugaré",
+              "singular_second_person": "jugarás",
+              "singular_formal_second_person": "jugará",
+              "singular_third_person": "jugará",
+              "plural_first_person": "jugaremos",
+              "plural_second_person": "jugaréis",
+              "plural_formal_second_person": "jugarán",
+              "plural_third_person": "jugarán"
+            },
+            "future_perfect": {
+              "singular_first_person": "habré jugado",
+              "singular_second_person": "habrás jugado",
+              "singular_formal_second_person": "habrá jugado",
+              "singular_third_person": "habrá jugado",
+              "plural_first_person": "habremos jugado",
+              "plural_second_person": "habréis jugado",
+              "plural_formal_second_person": "habrán jugado",
+              "plural_third_person": "habrán jugado"
+            },
+            "conditional": {
+              "singular_first_person": "jugaría",
+              "singular_second_person": "jugarías",
+              "singular_formal_second_person": "jugaría",
+              "singular_third_person": "jugaría",
+              "plural_first_person": "jugaríamos",
+              "plural_second_person": "jugaríais",
+              "plural_formal_second_person": "jugarían",
+              "plural_third_person": "jugarían"
+            },
+            "conditional_perfect": {
+              "singular_first_person": "habría jugado",
+              "singular_second_person": "habrías jugado",
+              "singular_formal_second_person": "habría jugado",
+              "singular_third_person": "habría jugado",
+              "plural_first_person": "habríamos jugado",
+              "plural_second_person": "habríais jugado",
+              "plural_formal_second_person": "habrían jugado",
+              "plural_third_person": "habrían jugado"
+            }
+          },
+          "subjunctive": {
+            "present": {
+              "singular_first_person": "juegue",
+              "singular_second_person": "juegues",
+              "singular_formal_second_person": "juegue",
+              "singular_third_person": "juegue",
+              "plural_first_person": "juguemos",
+              "plural_second_person": "juguéis",
+              "plural_formal_second_person": "jueguen",
+              "plural_third_person": "jueguen"
+            },
+            "present_perfect": {
+              "singular_first_person": "haya jugado",
+              "singular_second_person": "hayas jugado",
+              "singular_formal_second_person": "haya jugado",
+              "singular_third_person": "haya jugado",
+              "plural_first_person": "hayamos jugado",
+              "plural_second_person": "hayáis jugado",
+              "plural_formal_second_person": "hayan jugado",
+              "plural_third_person": "hayan jugado"
+            },
+            "imperfect": {
+              "singular_first_person": "jugara o jugase",
+              "singular_second_person": "jugaras o jugases",
+              "singular_formal_second_person": "jugara o jugase",
+              "singular_third_person": "jugara o jugase",
+              "plural_first_person": "jugáramos o jugásemos",
+              "plural_second_person": "jugarais o jugaseis",
+              "plural_formal_second_person": "jugaran o jugasen",
+              "plural_third_person": "jugaran o jugasen"
+            },
+            "past_perfect": {
+              "singular_first_person": "hubiera o hubiese jugado",
+              "singular_second_person": "hubieras o hubieses jugado",
+              "singular_formal_second_person": "hubiera o hubiese jugado",
+              "singular_third_person": "hubiera o hubiese jugado",
+              "plural_first_person": "hubiéramos o hubiésemos jugado",
+              "plural_second_person": "hubierais o hubieseis jugado",
+              "plural_formal_second_person": "hubieran o hubiesen jugado",
+              "plural_third_person": "hubieran o hubiesen jugado"
+            },
+            "future": {
+              "singular_first_person": "jugare",
+              "singular_second_person": "jugares",
+              "singular_formal_second_person": "jugare",
+              "singular_third_person": "jugare",
+              "plural_first_person": "jugáremos",
+              "plural_second_person": "jugareis",
+              "plural_formal_second_person": "jugaren",
+              "plural_third_person": "jugaren"
+            },
+            "future_perfect": {
+              "singular_first_person": "hubiere jugado",
+              "singular_second_person": "hubieres jugado",
+              "singular_formal_second_person": "hubiere jugado",
+              "singular_third_person": "hubiere jugado",
+              "plural_first_person": "hubiéremos jugado",
+              "plural_second_person": "hubiereis jugado",
+              "plural_formal_second_person": "hubieren jugado",
+              "plural_third_person": "hubieren jugado"
+            }
+          },
+          "imperative": {
+            "singular_second_person": "juega / jugá",
+            "singular_formal_second_person": "juegue",
+            "plural_second_person": "jugad",
+            "plural_formal_second_person": "jueguen"
+          }
+        }
+      }
+    ],
+    "suggestions": null
+  },
+  "ok": true
+}
