@@ -1,8 +1,7 @@
 package ud1.json;
-import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Persona implements Serializable{
+public class Persona {
     private String nombre;
     private LocalDate fechaNacimiento;
     private int altura;
