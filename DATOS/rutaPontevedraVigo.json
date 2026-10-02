@@ -1,0 +1,34 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "steps": [],
+          "weight": 4768.8,
+          "summary": "",
+          "duration": 1494.2,
+          "distance": 28857.6
+        }
+      ],
+      "weight_name": "routability",
+      "weight": 4768.8,
+      "duration": 1494.2,
+      "distance": 28857.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "FRqugP___38yAAAASgAAABMAAAAAAAAAL8AHQn6LdUGiNUZBAAAAADIAAABKAAAAEwAAAAAAAADQJwEAoR58_2FwhwJgGnz_GHKHAgIAzwEAAAAA",
+      "location": [-8.642911, 42.430561],
+      "name": "Rúa Daniel de la Sota",
+      "distance": 102.0296095
+    },
+    {
+      "hint": "E8ojgRnKI4EMAAAACgAAAAAAAAB6AAAA5zayQOg0gEAAAAAApxJYQgwAAAAKAAAAAAAAAHoAAADQJwEAu-56_1iKhALE7nr_WIqEAgAADwsAAAAA",
+      "location": [-8.720709, 42.2406],
+      "name": "Rúa Concepción Arenal",
+      "distance": 0.7430243058
+    }
+  ]
+}
