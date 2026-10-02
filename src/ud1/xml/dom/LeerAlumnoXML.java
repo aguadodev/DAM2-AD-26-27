@@ -1,4 +1,4 @@
-package ud1.xml;
+package ud1.xml.dom;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -7,7 +7,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 
-public class LeerAlumno2XML {
+public class LeerAlumnoXML {
 
     public static void main(String[] args) throws Exception {
 
@@ -20,7 +20,7 @@ public class LeerAlumno2XML {
 
         // Leer XML
         Document documento =
-                builder.parse(new File("DATOS/alumno2.xml"));
+                builder.parse(new File("DATOS/alumno.xml"));
 
         // Obtener raíz
         Element alumno =
@@ -33,11 +33,11 @@ public class LeerAlumno2XML {
                     .item(0)
                     .getTextContent();
 
-        Element ciclo = (Element) alumno.getElementsByTagName("ciclo").item(0);
-
-        String nombreCiclo = ciclo.getElementsByTagName("nombre").item(0).getTextContent();
-        String cursoCiclo = ciclo.getElementsByTagName("curso").item(0).getTextContent();
-        String curso = nombreCiclo + "(" + cursoCiclo + ")";
+        String curso =
+                alumno
+                    .getElementsByTagName("curso")
+                    .item(0)
+                    .getTextContent();
 
         String nota =
                 alumno

@@ -1,4 +1,4 @@
-package ud1.xml;
+package ud1.xml.dom;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

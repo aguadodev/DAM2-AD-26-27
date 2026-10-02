@@ -2,19 +2,19 @@
     {
         "nombre": "Pepe",
         "fechaNacimiento": {
-            "mes": 12,
             "dia": 11,
+            "mes": 12,
             "anho": 2000
         },
         "altura": 175
     },
     {
         "nombre": "Juan",
-        "altura": 180,        
         "fechaNacimiento": {
             "dia": 15,
             "mes": 5,
             "anho": 1985
-        }
+        },
+        "altura": 180
     }
 ]

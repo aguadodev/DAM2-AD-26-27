@@ -1,0 +1,12 @@
+[
+    {
+        "altura": 175,
+        "fechaNacimiento": "2000-12-11",
+        "nombre": "Pepe"
+    },
+    {
+        "altura": 180,
+        "fechaNacimiento": "1985-05-15",
+        "nombre": "Juan"
+    }
+]
