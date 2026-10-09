@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class Ejemplo1JdbcH2 {
+public class EjemploSqlInjection {
 
     public static void main(String[] args) {
         // URL de conexión para H2 en memoria
@@ -30,14 +30,42 @@ public class Ejemplo1JdbcH2 {
             System.out.println("✅ Datos insertados.");
 
             // Recuperar Listado de usuarios
-            System.out.println("LISTADO DE USUARIOS:");
+            System.out.println("\nLISTADO DE USUARIOS:");
             String sql = "SELECT * FROM users";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
                 System.out.println("Usuario " + id + ": " + name);
             }
+
+            Scanner sc = new Scanner(System.in);
+            System.out.print("\nIndica el id del usuario a recuperar: ");
+            /* Ejemplos de entradas para SQL Injection
+               "1 OR 1=1" para obtener todos los registros
+               "1; delete from users" para ejecutar otra consulta que borre todos los usuarios
+             */ 
+            String idR = sc.nextLine();
+            sc.close();
+
+            sql = "SELECT * FROM users WHERE id = " + idR;
+            rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                System.out.println("Usuario " + id + ": " + name);
+            }
+
+            // Recuperar Listado de usuarios
+            System.out.println("\nLISTADO DE USUARIOS:");
+            sql = "SELECT * FROM users";
+            rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int id = rs.getInt(1);
+                String name = rs.getString(2);
+                System.out.println("Usuario " + id + ": " + name);
+            }
+
 
         } catch (SQLException e) {
             e.printStackTrace();
