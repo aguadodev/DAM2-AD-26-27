@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Scanner;
 
 public class Ejemplo1JdbcH2 {
 
@@ -18,21 +17,21 @@ public class Ejemplo1JdbcH2 {
 
         // Conexión con try-resources. Se cierra automáticamente
         try (Connection conn = DriverManager.getConnection(url, user, password);
-                Statement stmt = conn.createStatement()) {
+                Statement statement = conn.createStatement()) {
 
             // Crear una tabla de ejemplo
-            stmt.execute("CREATE TABLE users(id INT PRIMARY KEY, name VARCHAR(50))");
+            statement.execute("CREATE TABLE users(id INT PRIMARY KEY, name VARCHAR(50))");
             System.out.println("✅ Tabla creada con éxito.");
 
             // Insertar datos
-            stmt.execute("INSERT INTO users VALUES(1, 'Pepe')");
-            stmt.execute("INSERT INTO users VALUES(2, 'Marta')");
+            statement.executeUpdate("INSERT INTO users VALUES(1, 'Pepe')");
+            statement.executeUpdate("INSERT INTO users VALUES(2, 'Marta')");
             System.out.println("✅ Datos insertados.");
 
             // Recuperar Listado de usuarios
             System.out.println("LISTADO DE USUARIOS:");
             String sql = "SELECT * FROM users";
-            ResultSet rs = stmt.executeQuery(sql);
+            ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
