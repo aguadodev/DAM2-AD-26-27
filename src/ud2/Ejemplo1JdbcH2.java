@@ -11,7 +11,7 @@ public class Ejemplo1JdbcH2 {
     public static void main(String[] args) {
         // URL de conexión para H2 en memoria
         // DB_CLOSE_DELAY=-1 mantiene la BD activa mientras la JVM esté viva
-        String url = "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1";
+        String url = "jdbc:h2:./BD/test;DB_CLOSE_DELAY=-1";
         String user = "sa";
         String password = "";
 

@@ -1,0 +1,14 @@
+2026-10-15 14:11:20.712478+02:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Pepe"
+Data conversion error converting "Pepe" [22018-252]
+2026-10-15 14:19:06.788260+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNOS" ya existe
+Table "ALUMNOS" already exists; SQL statement:
+CREATE TABLE alumnos (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR (50),
+  apellidos VARCHAR (100),
+  fecha_nacimiento DATE,
+  curso VARCHAR (100),
+  nota_media DECIMAL (4,2)
+) [42101-252]

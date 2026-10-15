@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class ConexionBD {
     public static Connection conectar() {
-        String url = "jdbc:h2:mem:instituto";
+        String url = "jdbc:h2:./BD/instituto";
         String user = "sa";
         String pass = "";
 

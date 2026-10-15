@@ -11,7 +11,7 @@ public class AppInstituto {
 
         try (Statement statement = con.createStatement();) {
 
-            String sql = """
+            /*String sql = """
                     CREATE TABLE alumnos (
                       id INT PRIMARY KEY AUTO_INCREMENT,
                       nombre VARCHAR (50),
@@ -33,7 +33,7 @@ public class AppInstituto {
             sql = "INSERT INTO alumnos VALUES (4, 'Lola', 'López', '2003-4-20', 'DAM2', NULL)";
             statement.executeUpdate(sql);
             sql = "INSERT INTO alumnos VALUES (5, 'Juan', 'Vázquez', '2004-5-10', 'ASIR1', NULL)";
-            statement.executeUpdate(sql);           
+            statement.executeUpdate(sql);       */    
 
             Alumnos.findAll();
 
