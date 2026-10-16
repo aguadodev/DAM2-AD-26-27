@@ -12,3 +12,14 @@ CREATE TABLE alumnos (
   curso VARCHAR (100),
   nota_media DECIMAL (4,2)
 ) [42101-252]
+2026-10-16 14:27:19.291412+02:00 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "UPDATE alumnos\000aSET nombre = ?,\000a    apellidos = ?\000a    [*]fecha_nacimiento = ?\000a    curso = ?\000a    nota_media = ?\000aWHERE ID = ?\000a"
+Syntax error in SQL statement "UPDATE alumnos\000aSET nombre = ?,\000a    apellidos = ?\000a    [*]fecha_nacimiento = ?\000a    curso = ?\000a    nota_media = ?\000aWHERE ID = ?\000a"; SQL statement:
+UPDATE alumnos
+SET nombre = ?,
+    apellidos = ?
+    fecha_nacimiento = ?
+    curso = ?
+    nota_media = ?
+WHERE ID = ?
+ [42000-252]
