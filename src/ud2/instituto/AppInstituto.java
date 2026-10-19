@@ -14,29 +14,40 @@ public class AppInstituto {
 
         try (Statement statement = con.createStatement();) {
 
-            /*String sql = """
-                    CREATE TABLE alumnos (
-                      id INT PRIMARY KEY AUTO_INCREMENT,
-                      nombre VARCHAR (50),
-                      apellidos VARCHAR (100),
-                      fecha_nacimiento DATE,
-                      curso VARCHAR (100),
-                      nota_media DECIMAL (4,2)
-                    );
-                    """;
-
-            System.out.println(statement.executeUpdate(sql));
-
-            sql = "INSERT INTO alumnos VALUES (1, 'Pepe', 'García', '2000-12-12', 'DAM2', NULL)";
-            statement.executeUpdate(sql);
-            sql = "INSERT INTO alumnos VALUES (2, 'Marta', 'Castro', '2001-2-12', 'ASIR1', NULL)";
-            statement.executeUpdate(sql);
-            sql = "INSERT INTO alumnos VALUES (3, 'Lolo', 'Martínez', '2002-1-12', 'DAM2', NULL)";
-            statement.executeUpdate(sql);
-            sql = "INSERT INTO alumnos VALUES (4, 'Lola', 'López', '2003-4-20', 'DAM2', NULL)";
-            statement.executeUpdate(sql);
-            sql = "INSERT INTO alumnos VALUES (5, 'Juan', 'Vázquez', '2004-5-10', 'ASIR1', NULL)";
-            statement.executeUpdate(sql);       */    
+            /*
+             * String sql = """
+             * CREATE TABLE alumnos (
+             * id INT PRIMARY KEY AUTO_INCREMENT,
+             * nombre VARCHAR (50),
+             * apellidos VARCHAR (100),
+             * fecha_nacimiento DATE,
+             * curso VARCHAR (100),
+             * nota_media DECIMAL (4,2)
+             * );
+             * """;
+             * 
+             * System.out.println(statement.executeUpdate(sql));
+             * 
+             * sql =
+             * "INSERT INTO alumnos VALUES (1, 'Pepe', 'García', '2000-12-12', 'DAM2', NULL)"
+             * ;
+             * statement.executeUpdate(sql);
+             * sql =
+             * "INSERT INTO alumnos VALUES (2, 'Marta', 'Castro', '2001-2-12', 'ASIR1', NULL)"
+             * ;
+             * statement.executeUpdate(sql);
+             * sql =
+             * "INSERT INTO alumnos VALUES (3, 'Lolo', 'Martínez', '2002-1-12', 'DAM2', NULL)"
+             * ;
+             * statement.executeUpdate(sql);
+             * sql =
+             * "INSERT INTO alumnos VALUES (4, 'Lola', 'López', '2003-4-20', 'DAM2', NULL)";
+             * statement.executeUpdate(sql);
+             * sql =
+             * "INSERT INTO alumnos VALUES (5, 'Juan', 'Vázquez', '2004-5-10', 'ASIR1', NULL)"
+             * ;
+             * statement.executeUpdate(sql);
+             */
 
             AlumnoDAO alumnoDAO = new AlumnoDAOImpl();
 
@@ -47,15 +58,12 @@ public class AppInstituto {
             } else {
                 System.out.println("Error al insertar el alumno: " + alumno);
             }
-            
 
             // LISTAR ALUMNADO (Read)
             System.out.println("\nALUMNOS");
             System.out.println("=======\n");
             List<AlumnoDTO> alumnos = alumnoDAO.listarTodos();
             alumnos.forEach(System.out::println);
-
-
 
             // RECUPERAR (Read)
             Scanner sc = new Scanner(System.in);
@@ -68,7 +76,6 @@ public class AppInstituto {
                 System.out.println("Error al recuperar el alumno (o no existe)");
             }
 
-
             // ACTUALIZAR (Update)
             System.out.println("Vamos a ponerle una nota media de 10!!");
             alumno2.setNotaMedia(10.);
@@ -76,8 +83,7 @@ public class AppInstituto {
                 System.out.println("Alumno actualizado correctamente");
             } else {
                 System.out.println("Error al actualizar el alumno");
-            }           
-
+            }
 
             // BORRAR (Delete)
             System.out.print("Id de usuario a borrar: ");
@@ -88,15 +94,15 @@ public class AppInstituto {
                 System.out.println("Error al borrar el alumno");
             }
 
-            
             // LISTAR ALUMNADO
             System.out.println("\nALUMNOS");
             System.out.println("=======\n");
             alumnos = alumnoDAO.listarTodos();
-            alumnos.forEach(System.out::println);            
+            alumnos.forEach(System.out::println);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 }
