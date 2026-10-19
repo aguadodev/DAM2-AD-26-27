@@ -61,8 +61,7 @@ public class AppAlumnos {
     }
 
     private static void insertar(Scanner sc, AlumnoDAO dao) {
-        // TODO: Introduce los datos para insertar
-        System.out.println("Datos del alumno a insertar: ");
+        System.out.println("\nDatos del alumno a insertar: ");
         sc.nextLine();
         System.out.print("Nombre: ");
         String nombre = sc.nextLine();
@@ -75,6 +74,8 @@ public class AppAlumnos {
         System.out.print("Nota Media: ");
         Double notaMedia = sc.nextDouble();
         sc.nextLine();
+        System.out.println();
+
         
         AlumnoDTO alumno = new AlumnoDTO(nombre, apellidos, LocalDate.parse(fechaNacimiento), curso, notaMedia);
 
@@ -88,8 +89,10 @@ public class AppAlumnos {
 
 
     private static void eliminar(Scanner sc, AlumnoDAO dao) {
-        System.out.print("Id de usuario a borrar: ");
+        System.out.print("\nId de usuario a borrar: ");
         int id = sc.nextInt();
+        System.out.println();
+
         if (dao.eliminar(id)) {
             System.out.println("Alumno borrado correctamente");
         } else {
@@ -98,22 +101,23 @@ public class AppAlumnos {
     }
 
     private static void actualizar(Scanner sc, AlumnoDAO dao) {
-        // TODO Introduce los datos del alumno a modificar
-        System.out.println("Datos del alumno a modificar: ");
+        System.out.println("\nDatos del alumno a modificar: ");
         System.out.print("Id: ");
         int id = sc.nextInt();
         sc.nextLine();
+        // TODO Obtener el Id y si existe pedir el resto de los datos. Introducir sólo los datos que se deseen modificar
         System.out.print("Nombre: ");
         String nombre = sc.nextLine();
         System.out.print("Apellidos: ");
         String apellidos = sc.nextLine();
         System.out.print("Fecha de nacimiento (aaaa-mm-dd): ");
         String fechaNacimiento = sc.nextLine();
-        System.out.print("Id: ");
+        System.out.print("Curso: ");
         String curso = sc.nextLine();
-        System.out.print("Nota Media");
+        System.out.print("Nota Media: ");
         Double notaMedia = sc.nextDouble();
         sc.nextLine();
+        System.out.println();
         
         AlumnoDTO alumno = new AlumnoDTO(id, nombre, apellidos, LocalDate.parse(fechaNacimiento), curso, notaMedia);
         if (dao.actualizar(alumno)) {
@@ -126,6 +130,8 @@ public class AppAlumnos {
     private static void buscarPorId(Scanner sc, AlumnoDAO dao) {
         System.out.print("\nId de alumno a recuperar: ");
         int id = sc.nextInt();
+        System.out.println();
+
         AlumnoDTO alumno = dao.buscarPorId(id);
         if (alumno != null) {
             System.out.println(alumno);

@@ -42,16 +42,16 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
     public boolean insertar(AlumnoDTO alumno) {
         String sql = """
                 INSERT INTO alumnos
+                (nombre, apellidos, fecha_nacimiento, curso, nota_media)                
                 VALUES
-                (?, ?, ?, ?, ?, ?)
+                (?, ?, ?, ?, ?)
                 """;
         try (PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
-            sentenciaSQL.setInt(1, alumno.getId());
-            sentenciaSQL.setString(2, alumno.getNombre());
-            sentenciaSQL.setString(3, alumno.getApellidos());
-            sentenciaSQL.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
-            sentenciaSQL.setString(5, alumno.getCurso());
-            sentenciaSQL.setDouble(6, alumno.getNotaMedia());
+            sentenciaSQL.setString(1, alumno.getNombre());
+            sentenciaSQL.setString(2, alumno.getApellidos());
+            sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
+            sentenciaSQL.setString(4, alumno.getCurso());
+            sentenciaSQL.setDouble(5, alumno.getNotaMedia());
             return sentenciaSQL.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();

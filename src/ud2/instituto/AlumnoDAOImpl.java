@@ -39,12 +39,12 @@ public class AlumnoDAOImpl implements AlumnoDAO {
     public boolean insertar(AlumnoDTO alumno) {
         String sql = """
                 INSERT INTO alumnos
+                (nombre, apellidos, fecha_nacimiento, curso, nota_media)
                 VALUES
-                (DEFAULT, ?, ?, ?, ?, ?)
+                (?, ?, ?, ?, ?)
                 """;
         try (Connection con = JdbcUtil.getConnection();
              PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
-            //sentenciaSQL.setInt(1, alumno.getId());
             sentenciaSQL.setString(1, alumno.getNombre());
             sentenciaSQL.setString(2, alumno.getApellidos());
             sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
