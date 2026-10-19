@@ -10,6 +10,7 @@ public class AlumnoDTO {
     private String curso;
     private Double notaMedia;
     
+    // Constructores
     public AlumnoDTO(int id, String nombre, String apellidos, LocalDate fechaNacimiento, String curso,
             Double notaMedia) {
         this.id = id;
@@ -20,17 +21,22 @@ public class AlumnoDTO {
         this.notaMedia = notaMedia;
     }
 
-    
+    public AlumnoDTO(String nombre, String apellidos, LocalDate fechaNacimiento, String curso, Double notaMedia) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
+        this.curso = curso;
+        this.notaMedia = notaMedia;
+    }
 
     public AlumnoDTO(int id) {
         this.id = id;
     }
 
-
-
     public AlumnoDTO() {
     }
 
+    // Setters y Getters
     public int getId() {
         return id;
     }
@@ -79,6 +85,7 @@ public class AlumnoDTO {
         this.notaMedia = notaMedia;
     }
 
+    // toString()
     @Override
     public String toString() {
         return "AlumnoDTO [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento="

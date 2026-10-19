@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class AppInstituto {
     public static void main(String[] args) {
 
-        Connection con = ConexionBD.conectar();
+        Connection con = JdbcUtil.getConnection();
 
         try (Statement statement = con.createStatement();) {
 
@@ -38,9 +38,11 @@ public class AppInstituto {
             sql = "INSERT INTO alumnos VALUES (5, 'Juan', 'Vázquez', '2004-5-10', 'ASIR1', NULL)";
             statement.executeUpdate(sql);       */    
 
+            AlumnoDAO alumnoDAO = new AlumnoDAOImpl();
+
             // INSERTAR (Create)
             AlumnoDTO alumno = new AlumnoDTO(7, "Manuel", "López", LocalDate.of(2000, 1, 1), "COM1", 7.);
-            if (AlumnoDAO.insertar(alumno)) {
+            if (alumnoDAO.insertar(alumno)) {
                 System.out.println("Alumno insertado correctamente");
             } else {
                 System.out.println("Error al insertar el alumno: " + alumno);
@@ -50,7 +52,7 @@ public class AppInstituto {
             // LISTAR ALUMNADO (Read)
             System.out.println("\nALUMNOS");
             System.out.println("=======\n");
-            List<AlumnoDTO> alumnos = AlumnoDAO.findAll();
+            List<AlumnoDTO> alumnos = alumnoDAO.listarTodos();
             alumnos.forEach(System.out::println);
 
 
@@ -59,7 +61,7 @@ public class AppInstituto {
             Scanner sc = new Scanner(System.in);
             System.out.print("Id de usuario a recuperar: ");
             int id = sc.nextInt();
-            AlumnoDTO alumno2 = AlumnoDAO.find(new AlumnoDTO(id));
+            AlumnoDTO alumno2 = alumnoDAO.buscarPorId(id);
             if (alumno2 != null) {
                 System.out.println(alumno2);
             } else {
@@ -70,31 +72,27 @@ public class AppInstituto {
             // ACTUALIZAR (Update)
             System.out.println("Vamos a ponerle una nota media de 10!!");
             alumno2.setNotaMedia(10.);
-            if (AlumnoDAO.actualizar(alumno2)) {
+            if (alumnoDAO.actualizar(alumno2)) {
                 System.out.println("Alumno actualizado correctamente");
             } else {
                 System.out.println("Error al actualizar el alumno");
-            }            
-            
-
-
+            }           
 
 
             // BORRAR (Delete)
             System.out.print("Id de usuario a borrar: ");
             id = sc.nextInt();
-            if (AlumnoDAO.borrar(new AlumnoDTO(id))) {
+            if (alumnoDAO.eliminar(id)) {
                 System.out.println("Alumno borrado correctamente");
             } else {
                 System.out.println("Error al borrar el alumno");
             }
 
-
-
+            
             // LISTAR ALUMNADO
             System.out.println("\nALUMNOS");
             System.out.println("=======\n");
-            alumnos = AlumnoDAO.findAll();
+            alumnos = alumnoDAO.listarTodos();
             alumnos.forEach(System.out::println);            
 
         } catch (SQLException e) {
