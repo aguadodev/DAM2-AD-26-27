@@ -1,25 +1,12 @@
-2026-10-15 14:11:20.712478+02:00 jdbc[4]: exception
-org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Pepe"
-Data conversion error converting "Pepe" [22018-252]
-2026-10-15 14:19:06.788260+02:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "ALUMNOS" ya existe
-Table "ALUMNOS" already exists; SQL statement:
-CREATE TABLE alumnos (
+2026-10-20 12:35:36.860617+02:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE [*]IF NOT EXIST alumnos (\000a  id INT PRIMARY KEY AUTO_INCREMENT,\000a  nombre VARCHAR (50),\000a  apellidos VARCHAR (100),\000a  fecha_nacimiento DATE,\000a  email VARCHAR(100) UNIQUE,\000a  nota_media DECIMAL (4,2)\000a);\000a"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE [*]IF NOT EXIST alumnos (\000a  id INT PRIMARY KEY AUTO_INCREMENT,\000a  nombre VARCHAR (50),\000a  apellidos VARCHAR (100),\000a  fecha_nacimiento DATE,\000a  email VARCHAR(100) UNIQUE,\000a  nota_media DECIMAL (4,2)\000a);\000a"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXIST alumnos (
   id INT PRIMARY KEY AUTO_INCREMENT,
   nombre VARCHAR (50),
   apellidos VARCHAR (100),
   fecha_nacimiento DATE,
-  curso VARCHAR (100),
+  email VARCHAR(100) UNIQUE,
   nota_media DECIMAL (4,2)
-) [42101-252]
-2026-10-16 14:27:19.291412+02:00 jdbc[7]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "UPDATE alumnos\000aSET nombre = ?,\000a    apellidos = ?\000a    [*]fecha_nacimiento = ?\000a    curso = ?\000a    nota_media = ?\000aWHERE ID = ?\000a"
-Syntax error in SQL statement "UPDATE alumnos\000aSET nombre = ?,\000a    apellidos = ?\000a    [*]fecha_nacimiento = ?\000a    curso = ?\000a    nota_media = ?\000aWHERE ID = ?\000a"; SQL statement:
-UPDATE alumnos
-SET nombre = ?,
-    apellidos = ?
-    fecha_nacimiento = ?
-    curso = ?
-    nota_media = ?
-WHERE ID = ?
- [42000-252]
+);
+ [42001-252]

@@ -14,7 +14,7 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
 
     public AlumnoDAOImplTran(Connection con) {
          this.con = con; 
-        }
+    }
 
     public List<AlumnoDTO> listarTodos() {
         List<AlumnoDTO> alumnos = null;
@@ -30,7 +30,7 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
                         rs.getString("nombre"),
                         rs.getString("apellidos"),
                         rs.getDate("fecha_nacimiento").toLocalDate(),
-                        rs.getString("curso"),
+                        rs.getString("email"),
                         rs.getDouble("nota_media")));
             }
         } catch (SQLException e) {
@@ -42,7 +42,7 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
     public boolean insertar(AlumnoDTO alumno) {
         String sql = """
                 INSERT INTO alumnos
-                (nombre, apellidos, fecha_nacimiento, curso, nota_media)                
+                (nombre, apellidos, fecha_nacimiento, email, nota_media)                
                 VALUES
                 (?, ?, ?, ?, ?)
                 """;
@@ -50,7 +50,7 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
             sentenciaSQL.setString(1, alumno.getNombre());
             sentenciaSQL.setString(2, alumno.getApellidos());
             sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
-            sentenciaSQL.setString(4, alumno.getCurso());
+            sentenciaSQL.setString(4, alumno.getEmail());
             sentenciaSQL.setDouble(5, alumno.getNotaMedia());
             return sentenciaSQL.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -91,7 +91,7 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
                         rs.getString("nombre"),
                         rs.getString("apellidos"),
                         rs.getDate("fecha_nacimiento").toLocalDate(),
-                        rs.getString("curso"),
+                        rs.getString("email"),
                         rs.getDouble("nota_media"));
             }
             rs.close();
@@ -107,7 +107,7 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
                 SET nombre = ?,
                     apellidos = ?,
                     fecha_nacimiento = ?,
-                    curso = ?,
+                    email = ?,
                     nota_media = ?
                 WHERE ID = ?
                 """;
@@ -115,13 +115,40 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
             sentenciaSQL.setString(1, alumno.getNombre());
             sentenciaSQL.setString(2, alumno.getApellidos());
             sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
-            sentenciaSQL.setString(4, alumno.getCurso());
+            sentenciaSQL.setString(4, alumno.getEmail());
             sentenciaSQL.setDouble(5, alumno.getNotaMedia());
             sentenciaSQL.setInt(6, alumno.getId());
             return sentenciaSQL.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    @Override
+    public void matricularAlumnos(List<AlumnoDTO> alumnos) {
+        
+        try {
+            con.setAutoCommit(false);
+
+            // Ejecutar sentencias de la transacción
+            for (AlumnoDTO alumnoDTO : alumnos) {
+                if (!insertar(alumnoDTO))
+                    throw new SQLException();
+            }
+
+            con.commit();
+        } catch (SQLException e) {
+            try {
+                con.rollback();
+            } catch (SQLException e1) {
+            }
+        } finally {
+            try {
+                con.setAutoCommit(true);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

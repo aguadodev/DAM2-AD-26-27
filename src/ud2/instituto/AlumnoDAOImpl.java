@@ -27,7 +27,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
                         rs.getString("nombre"),
                         rs.getString("apellidos"),
                         rs.getDate("fecha_nacimiento").toLocalDate(),
-                        rs.getString("curso"),
+                        rs.getString("email"),
                         rs.getDouble("nota_media")));
             }
         } catch (SQLException e) {
@@ -39,7 +39,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
     public boolean insertar(AlumnoDTO alumno) {
         String sql = """
                 INSERT INTO alumnos
-                (nombre, apellidos, fecha_nacimiento, curso, nota_media)
+                (nombre, apellidos, fecha_nacimiento, email, nota_media)
                 VALUES
                 (?, ?, ?, ?, ?)
                 """;
@@ -48,7 +48,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
             sentenciaSQL.setString(1, alumno.getNombre());
             sentenciaSQL.setString(2, alumno.getApellidos());
             sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
-            sentenciaSQL.setString(4, alumno.getCurso());
+            sentenciaSQL.setString(4, alumno.getEmail());
             sentenciaSQL.setDouble(5, alumno.getNotaMedia());
             return sentenciaSQL.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -91,7 +91,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
                         rs.getString("nombre"),
                         rs.getString("apellidos"),
                         rs.getDate("fecha_nacimiento").toLocalDate(),
-                        rs.getString("curso"),
+                        rs.getString("email"),
                         rs.getDouble("nota_media"));
             }
             rs.close();
@@ -107,7 +107,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
                 SET nombre = ?,
                     apellidos = ?,
                     fecha_nacimiento = ?,
-                    curso = ?,
+                    email = ?,
                     nota_media = ?
                 WHERE ID = ?
                 """;
@@ -116,7 +116,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
             sentenciaSQL.setString(1, alumno.getNombre());
             sentenciaSQL.setString(2, alumno.getApellidos());
             sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
-            sentenciaSQL.setString(4, alumno.getCurso());
+            sentenciaSQL.setString(4, alumno.getEmail());
             sentenciaSQL.setDouble(5, alumno.getNotaMedia());
             sentenciaSQL.setInt(6, alumno.getId());            
             return sentenciaSQL.executeUpdate() > 0;
@@ -125,4 +125,5 @@ public class AlumnoDAOImpl implements AlumnoDAO {
             return false;
         }
     }
+    
 }
