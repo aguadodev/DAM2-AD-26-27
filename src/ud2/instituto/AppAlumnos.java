@@ -41,7 +41,6 @@ public class AppAlumnos {
                         System.out.println("\nListado de Alumnos");
                         System.out.println("------------------\n");
                         dao.listarTodos().forEach(System.out::println);
-                        ;
                         break;
                     case 3:
                         // Buscar por ID
