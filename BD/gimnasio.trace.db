@@ -1,0 +1,10 @@
+2026-10-22 14:28:50.173073+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EJERCICIO" not found (this database is empty); SQL statement:
+INSERT INTO ejercicio
+    (nombre, musculosInvolucrados, series, repeticiones)
+VALUES
+    (?, ?, ?, ?)
+ [42104-252]
+2026-10-22 14:28:52.616837+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EJERCICIO" not found (this database is empty); SQL statement:
+SELECT * FROM ejercicio [42104-252]

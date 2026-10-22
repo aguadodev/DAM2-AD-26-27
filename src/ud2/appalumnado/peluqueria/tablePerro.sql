@@ -1,0 +1,9 @@
+-- @author ANDRE PAZO
+CREATE TABLE perros (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre VARCHAR(50) NOT NULL,
+    chip INTEGER NOT NULL UNIQUE,
+    raza VARCHAR(50),
+    edad SMALLINT,
+    desparasitado BOOLEAN NOT NULL DEFAULT FALSE
+);

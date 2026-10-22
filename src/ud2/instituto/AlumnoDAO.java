@@ -8,5 +8,7 @@ public interface AlumnoDAO {
     public boolean eliminar(int id);
     public AlumnoDTO buscarPorId(int id);
     public boolean actualizar(AlumnoDTO alumno);
+
+    // Otros métodos
     public void matricularAlumnos(List<AlumnoDTO> alumnos);
 }

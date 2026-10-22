@@ -9,17 +9,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class AlumnoDAOImpl implements AlumnoDAO {
 
     public List<AlumnoDTO> listarTodos() {
         List<AlumnoDTO> alumnos = null;
-        
+
         String sql = "SELECT * FROM alumnos";
         try (Connection con = JdbcUtil.getConnection();
-             Statement sentenciaSQL = con.createStatement();
-             ResultSet rs = sentenciaSQL.executeQuery(sql);) {
-            
+                Statement sentenciaSQL = con.createStatement();
+                ResultSet rs = sentenciaSQL.executeQuery(sql);) {
+
             alumnos = new ArrayList<>();
             while (rs.next()) {
                 alumnos.add(new AlumnoDTO(
@@ -44,7 +43,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
                 (?, ?, ?, ?, ?)
                 """;
         try (Connection con = JdbcUtil.getConnection();
-             PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
+                PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
             sentenciaSQL.setString(1, alumno.getNombre());
             sentenciaSQL.setString(2, alumno.getApellidos());
             sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
@@ -63,24 +62,24 @@ public class AlumnoDAOImpl implements AlumnoDAO {
                 WHERE ID = ?
                 """;
         try (Connection con = JdbcUtil.getConnection();
-             PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
+                PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
             sentenciaSQL.setInt(1, id);
             return sentenciaSQL.executeUpdate() > 0;
         } catch (SQLException e) {
-                e.printStackTrace();
+            e.printStackTrace();
             return false;
         }
     }
 
     public AlumnoDTO buscarPorId(int id) {
         AlumnoDTO alumnoRes = null;
-        
+
         String sql = """
                 SELECT * FROM alumnos
                 WHERE ID = ?
                 """;
         try (Connection con = JdbcUtil.getConnection();
-             PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
+                PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
 
             sentenciaSQL.setInt(1, id);
 
@@ -112,18 +111,56 @@ public class AlumnoDAOImpl implements AlumnoDAO {
                 WHERE ID = ?
                 """;
         try (Connection con = JdbcUtil.getConnection();
-             PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
+                PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
             sentenciaSQL.setString(1, alumno.getNombre());
             sentenciaSQL.setString(2, alumno.getApellidos());
             sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
             sentenciaSQL.setString(4, alumno.getEmail());
             sentenciaSQL.setDouble(5, alumno.getNotaMedia());
-            sentenciaSQL.setInt(6, alumno.getId());            
+            sentenciaSQL.setInt(6, alumno.getId());
             return sentenciaSQL.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
-    
+
+    @Override
+    public void matricularAlumnos(List<AlumnoDTO> alumnos) {
+        try (Connection con = JdbcUtil.getConnection()) {
+            try {
+                // Desactivar Auto-commit
+                con.setAutoCommit(false);
+                // Realizar transacción
+                String sql = """
+                        INSERT INTO alumnos
+                        (nombre, apellidos, fecha_nacimiento, email, nota_media)
+                        VALUES
+                        (?, ?, ?, ?, ?)
+                        """;
+                PreparedStatement sentenciaSQL = con.prepareStatement(sql);
+
+                for (AlumnoDTO alumno : alumnos) {
+                    sentenciaSQL.setString(1, alumno.getNombre());
+                    sentenciaSQL.setString(2, alumno.getApellidos());
+                    sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
+                    sentenciaSQL.setString(4, alumno.getEmail());
+                    sentenciaSQL.setDouble(5, alumno.getNotaMedia());
+                    sentenciaSQL.executeUpdate();
+                }
+
+                // commit
+                con.commit();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                con.rollback();
+            } finally {
+                con.setAutoCommit(true);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

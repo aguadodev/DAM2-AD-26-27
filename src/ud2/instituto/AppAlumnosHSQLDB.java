@@ -117,12 +117,7 @@ public class AppAlumnosHSQLDB {
                     );
                     """;
 
-            if (statement.executeUpdate(sql) > 0) {
-                System.out.println("BD/Tabla creada");
-            } else {
-                System.out.println("No se creó la BD/tabla");
-            }
-            ;
+            statement.executeUpdate(sql);
 
             sql = """
                     CREATE PROCEDURE buscar_alumnos_por_apellido(IN p_apellido VARCHAR(100))
@@ -137,14 +132,9 @@ public class AppAlumnosHSQLDB {
                     END;
                     """;
 
-            if (statement.executeUpdate(sql) > 0) {
-                System.out.println("Procedimiento almacenado creado");
-            } else {
-                System.out.println("No se creó el Procedimiento almacenado");
-            }
-            ;
+            statement.executeUpdate(sql);
         } catch (SQLException e) {
-            System.out.println("ERROR AL CREAR DB/TABLE");
+            System.out.println("ERROR AL CREAR DB/TABLE/PROCEDURE");
             e.printStackTrace();
         }
 

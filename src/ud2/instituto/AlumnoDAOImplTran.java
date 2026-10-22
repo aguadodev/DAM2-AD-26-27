@@ -127,7 +127,6 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
 
     @Override
     public void matricularAlumnos(List<AlumnoDTO> alumnos) {
-        
         try {
             con.setAutoCommit(false);
 
