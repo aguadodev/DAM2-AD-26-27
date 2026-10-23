@@ -1,4 +1,4 @@
-package ud2.appalumnado;
+package ud2.appalumnado.clientes;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

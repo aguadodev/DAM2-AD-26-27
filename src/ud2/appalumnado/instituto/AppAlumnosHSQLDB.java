@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import ud2.appalumnado.JdbcUtilHSQLDB;
+
 public class AppAlumnosHSQLDB {
     public static void main() {
         try (Connection con = JdbcUtilHSQLDB.getConnection()) {

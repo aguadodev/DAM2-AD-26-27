@@ -1,12 +1,12 @@
-package ud2.appalumnado.instituto;
+package ud2.appalumnado;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JdbcUtilHSQLDB {
+public class JdbcUtil {
     public static Connection getConnection() {
-        final String URL = "jdbc:hsqldb:./BD/instituto-HSQLDB";
+        final String URL = "jdbc:h2:./BD/instituto";
         final String USER = "sa";
         final String PASS = "";
 

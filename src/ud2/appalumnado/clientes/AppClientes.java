@@ -7,8 +7,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
-
-import ud2.appalumnado.JbdcUtil;
 /**
  * @author Adrián Gómez
  */

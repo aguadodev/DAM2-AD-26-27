@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import ud2.appalumnado.JdbcUtil;
+
 public class AppAlumnos {
     public static void main() {
         try (Connection con = JdbcUtil.getConnection()) {

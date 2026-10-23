@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
-
-import ud2.appalumnado.JbdcUtil;
 /**
  * @author Adrián Gómez
  */
