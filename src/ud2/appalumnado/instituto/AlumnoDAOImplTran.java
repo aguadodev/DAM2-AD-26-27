@@ -31,7 +31,8 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
                         rs.getString("apellidos"),
                         rs.getDate("fecha_nacimiento").toLocalDate(),
                         rs.getString("email"),
-                        rs.getDouble("nota_media")));
+                        rs.getDouble("nota_media"),
+                        rs.getInt("curso")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -42,9 +43,9 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
     public boolean insertar(AlumnoDTO alumno) {
         String sql = """
                 INSERT INTO alumnos
-                (nombre, apellidos, fecha_nacimiento, email, nota_media)                
+                (nombre, apellidos, fecha_nacimiento, email, nota_media, curso)                
                 VALUES
-                (?, ?, ?, ?, ?)
+                (?, ?, ?, ?, ?, ?)
                 """;
         try (PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
             sentenciaSQL.setString(1, alumno.getNombre());
@@ -52,6 +53,7 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
             sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
             sentenciaSQL.setString(4, alumno.getEmail());
             sentenciaSQL.setDouble(5, alumno.getNotaMedia());
+            sentenciaSQL.setInt(6, alumno.getCurso());
             return sentenciaSQL.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -92,7 +94,8 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
                         rs.getString("apellidos"),
                         rs.getDate("fecha_nacimiento").toLocalDate(),
                         rs.getString("email"),
-                        rs.getDouble("nota_media"));
+                        rs.getDouble("nota_media"),
+                        rs.getInt("curso"));
             }
             rs.close();
         } catch (SQLException e) {
@@ -108,7 +111,8 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
                     apellidos = ?,
                     fecha_nacimiento = ?,
                     email = ?,
-                    nota_media = ?
+                    nota_media = ?,
+                    curso = ?
                 WHERE ID = ?
                 """;
         try (PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
@@ -117,7 +121,8 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
             sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
             sentenciaSQL.setString(4, alumno.getEmail());
             sentenciaSQL.setDouble(5, alumno.getNotaMedia());
-            sentenciaSQL.setInt(6, alumno.getId());
+            sentenciaSQL.setInt(6, alumno.getCurso());
+            sentenciaSQL.setInt(7, alumno.getId());
             return sentenciaSQL.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();

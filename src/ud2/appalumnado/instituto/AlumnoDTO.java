@@ -9,8 +9,21 @@ public class AlumnoDTO {
     private LocalDate fechaNacimiento;
     private String email;
     private Double notaMedia;
+    private Integer curso;
     
     // Constructores
+
+    public AlumnoDTO(int id, String nombre, String apellidos, LocalDate fechaNacimiento, String email, Double notaMedia,
+            Integer curso) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
+        this.email = email;
+        this.notaMedia = notaMedia;
+        this.curso = curso;
+    }
+    
     public AlumnoDTO(int id, String nombre, String apellidos, LocalDate fechaNacimiento, String email,
             Double notaMedia) {
         this.id = id;
@@ -27,6 +40,18 @@ public class AlumnoDTO {
         this.fechaNacimiento = fechaNacimiento;
         this.email = email;
         this.notaMedia = notaMedia;
+    }
+
+
+    
+    public AlumnoDTO(String nombre, String apellidos, LocalDate fechaNacimiento, String email, Double notaMedia,
+            Integer curso) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.fechaNacimiento = fechaNacimiento;
+        this.email = email;
+        this.notaMedia = notaMedia;
+        this.curso = curso;
     }
 
     public AlumnoDTO(int id) {
@@ -85,11 +110,25 @@ public class AlumnoDTO {
         this.notaMedia = notaMedia;
     }
 
+    public Integer getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Integer curso) {
+        this.curso = curso;
+    }
+
+
+    
     // toString()
+
     @Override
     public String toString() {
         return "AlumnoDTO [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", fechaNacimiento="
-                + fechaNacimiento + ", email=" + email + ", notaMedia=" + notaMedia + "]";
+                + fechaNacimiento + ", email=" + email + ", notaMedia=" + notaMedia + ", curso=" + curso + "]";
     }
+
+
+
 
 }

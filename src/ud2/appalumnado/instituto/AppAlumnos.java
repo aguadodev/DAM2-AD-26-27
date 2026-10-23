@@ -92,18 +92,13 @@ public class AppAlumnos {
                       apellidos VARCHAR (100),
                       fecha_nacimiento DATE,
                       email VARCHAR(100) UNIQUE,
-                      nota_media DECIMAL (4,2)
+                      nota_media DECIMAL (4,2),
+                      curso INT,
+                      FOREIGN KEY (curso) REFERENCES cursos(id)
                     );
                     """;
 
-            if (statement.executeUpdate(sql) > 0) {
-                System.out.println("BD/Tabla creada");
-            } else {
-                System.out.println("No se creó la BD/tabla");
-            };
-
-            /*sql = "INSERT INTO alumnos VALUES (1, 'Pepe', 'García', '2000-12-12', 'pepe@gmail.com', NULL)";
-            statement.executeUpdate(sql);           */
+            statement.executeUpdate(sql);
         } catch (SQLException e) {
             System.out.println("ERROR AL CREAR DB/TABLE");
         }
@@ -123,10 +118,12 @@ public class AppAlumnos {
         String email = sc.nextLine();
         System.out.print("Nota Media: ");
         Double notaMedia = sc.nextDouble();
+        System.out.print("Curso: ");
+        Integer curso = sc.nextInt();
         sc.nextLine();
         System.out.println();
 
-        AlumnoDTO alumno = new AlumnoDTO(nombre, apellidos, LocalDate.parse(fechaNacimiento), email, notaMedia);
+        AlumnoDTO alumno = new AlumnoDTO(nombre, apellidos, LocalDate.parse(fechaNacimiento), email, notaMedia, curso);
 
         if (dao.insertar(alumno)) {
             System.out.println("Alumno insertado correctamente");
@@ -164,10 +161,12 @@ public class AppAlumnos {
         String email = sc.nextLine();
         System.out.print("Nota Media: ");
         Double notaMedia = sc.nextDouble();
+        System.out.print("Curso: ");
+        Integer curso = sc.nextInt();        
         sc.nextLine();
         System.out.println();
 
-        AlumnoDTO alumno = new AlumnoDTO(id, nombre, apellidos, LocalDate.parse(fechaNacimiento), email, notaMedia);
+        AlumnoDTO alumno = new AlumnoDTO(id, nombre, apellidos, LocalDate.parse(fechaNacimiento), email, notaMedia, curso);
         if (dao.actualizar(alumno)) {
             System.out.println("Alumno actualizado correctamente");
         } else {

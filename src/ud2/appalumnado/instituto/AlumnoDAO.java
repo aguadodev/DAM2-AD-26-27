@@ -11,4 +11,5 @@ public interface AlumnoDAO {
 
     // Otros métodos
     public void matricularAlumnos(List<AlumnoDTO> alumnos);
+    //public void matricular(int idAlumno, int idCurso);
 }
