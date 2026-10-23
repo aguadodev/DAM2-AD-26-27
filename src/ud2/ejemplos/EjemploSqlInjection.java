@@ -1,14 +1,13 @@
-package ud2;
+package ud2.ejemplos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class EjemploSqlInjectionSolucion {
+public class EjemploSqlInjection {
 
     public static void main(String[] args) {
         // URL de conexión para H2 en memoria
@@ -19,8 +18,7 @@ public class EjemploSqlInjectionSolucion {
 
         // Conexión con try-resources. Se cierra automáticamente
         try (Connection conn = DriverManager.getConnection(url, user, password);
-                Statement stmt = conn.createStatement()
-                ) {
+                Statement stmt = conn.createStatement()) {
 
             // Crear una tabla de ejemplo
             stmt.execute("CREATE TABLE users(id INT PRIMARY KEY, name VARCHAR(50))");
@@ -50,28 +48,13 @@ public class EjemploSqlInjectionSolucion {
             String idR = sc.nextLine();
             sc.close();
 
-
-
-
-            sql = "SELECT * FROM users WHERE id = ?";
-            PreparedStatement pStatement = conn.prepareStatement(sql);
-            pStatement.setInt(1, Integer.parseInt(idR));
-
-            rs = pStatement.executeQuery();
+            sql = "SELECT * FROM users WHERE id = " + idR;
+            rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 int id = rs.getInt(1);
                 String name = rs.getString(2);
                 System.out.println("Usuario " + id + ": " + name);
             }
-
-
-
-
-
-
-
-
-
 
             // Recuperar Listado de usuarios
             System.out.println("\nLISTADO DE USUARIOS:");

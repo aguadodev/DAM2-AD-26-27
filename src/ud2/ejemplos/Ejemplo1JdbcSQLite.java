@@ -1,4 +1,4 @@
-package ud2;
+package ud2.ejemplos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

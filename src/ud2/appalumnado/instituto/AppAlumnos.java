@@ -1,5 +1,6 @@
 package ud2.appalumnado.instituto;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -8,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import ud2.appalumnado.JdbcUtil;
+import ud2.appalumnado.JdbcUtilProp;
 
 public class AppAlumnos {
     public static void main() {
-        try (Connection con = JdbcUtil.getConnection()) {
+        try (Connection con = JdbcUtilProp.getConnection()) {
             AlumnoDAO dao = new AlumnoDAOImplTran(con);
 
             Scanner sc = new Scanner(System.in);
@@ -74,13 +75,15 @@ public class AppAlumnos {
             } while (true);
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
         }
     }
 
-    private static void crearTabla() {
+    private static void crearTabla() throws IOException {
         System.out.println("\nCreando Tabla/BDs");
         System.out.println("-----------------\n");
-        try (Connection con = JdbcUtil.getConnection(); 
+        try (Connection con = JdbcUtilProp.getConnection(); 
              Statement statement = con.createStatement();) {
             String sql = """
                     CREATE TABLE IF NOT EXISTS alumnos (
