@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public final class JdbcUtilProp {
 
-    private static final String CONFIG_FILE = "./BD/config.properties";
+    private static final String CONFIG_FILE = "./BD/configSQLite.properties";
 
     public static Connection getConnection() throws IOException, SQLException {
         Properties props = new Properties();

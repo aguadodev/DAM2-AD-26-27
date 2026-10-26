@@ -87,14 +87,14 @@ public class AppAlumnos {
              Statement statement = con.createStatement();) {
             String sql = """
                     CREATE TABLE IF NOT EXISTS alumnos (
-                      id INT PRIMARY KEY AUTO_INCREMENT,
+                      id INT PRIMARY KEY AUTOINCREMENT,
                       nombre VARCHAR (50),
                       apellidos VARCHAR (100),
                       fecha_nacimiento DATE,
                       email VARCHAR(100) UNIQUE,
                       nota_media DECIMAL (4,2),
-                      curso INT,
-                      FOREIGN KEY (curso) REFERENCES cursos(id)
+                      curso_id INT,
+                      FOREIGN KEY (curso_id) REFERENCES cursos(id)
                     );
                     """;
 

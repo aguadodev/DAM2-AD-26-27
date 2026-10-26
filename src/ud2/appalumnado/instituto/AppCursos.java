@@ -76,7 +76,7 @@ public class AppCursos {
              Statement statement = con.createStatement();) {
             String sql = """
                     CREATE TABLE IF NOT EXISTS cursos (
-                      id INT PRIMARY KEY AUTO_INCREMENT,
+                      id INTEGER PRIMARY KEY AUTOINCREMENT,
                       nombre VARCHAR (100),
                       horas INT
                     );
@@ -85,7 +85,7 @@ public class AppCursos {
             statement.executeUpdate(sql);
 
         } catch (SQLException e) {
-            System.out.println("ERROR AL CREAR DB/TABLE");
+            e.printStackTrace();
         }
                
     }
