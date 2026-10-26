@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import ud2.appalumnado.JdbcUtilProp;
+import ud2.appalumnado.instituto.dao.AlumnoDAO;
+import ud2.appalumnado.instituto.dao.AlumnoDAOImplTran;
+import ud2.appalumnado.instituto.dto.AlumnoDTO;
 
 public class AppAlumnos {
     public static void main() {
@@ -66,7 +69,6 @@ public class AppAlumnos {
                         break;
                     case 6:
                         // Salir
-                        sc.close();
                         System.out.println("Saliendo del programa...");
                         return;
                     default:

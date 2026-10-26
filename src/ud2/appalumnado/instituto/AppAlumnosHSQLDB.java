@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import ud2.appalumnado.JdbcUtilHSQLDB;
+import ud2.appalumnado.instituto.dao.AlumnoDAO;
+import ud2.appalumnado.instituto.dao.AlumnoDAOImplTran;
+import ud2.appalumnado.instituto.dto.AlumnoDTO;
 
 public class AppAlumnosHSQLDB {
     public static void main() {

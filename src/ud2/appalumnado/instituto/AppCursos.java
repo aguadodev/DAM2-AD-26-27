@@ -7,6 +7,9 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 import ud2.appalumnado.JdbcUtilProp;
+import ud2.appalumnado.instituto.dao.CursoDAO;
+import ud2.appalumnado.instituto.dao.CursoDAOImplTran;
+import ud2.appalumnado.instituto.dto.CursoDTO;
 
 public class AppCursos {
     public static void main() {

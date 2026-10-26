@@ -1,8 +1,11 @@
-package ud2.appalumnado.instituto;
+package ud2.appalumnado.instituto.dao;
 
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import ud2.appalumnado.instituto.dto.CursoDTO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

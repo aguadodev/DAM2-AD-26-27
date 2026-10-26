@@ -1,4 +1,4 @@
-package ud2.appalumnado.instituto;
+package ud2.appalumnado.instituto.dto;
 
 import java.time.LocalDate;
 
