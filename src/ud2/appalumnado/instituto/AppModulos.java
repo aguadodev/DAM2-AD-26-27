@@ -48,17 +48,16 @@ public class AppModulos {
                 // Fallo técnico de BD: se informa al usuario y el menú continúa.
                 // En una app real aquí iría un logger; aquí usamos System.err.
                 System.err.println("Error de acceso a datos: " + e.getMessage());
-                // Si quieres depurar, descomenta:
+                // Para depurar:
                 // e.printStackTrace();
             }
         }
-        System.out.println("Saliendo del programa...");
     }
 
     private static void mostrarMenu() {
         System.out.println("""
 
-                MENU CURSOS
+                MENU MÓDULOS
                 ============
 
                 1. Insertar
@@ -73,50 +72,50 @@ public class AppModulos {
     // ---------- Operaciones ----------
 
     private static void insertar(Scanner sc, ModuloDAO dao) {
-        System.out.println("\nDatos del modulo a insertar: ");
+        System.out.println("\nDatos del módulo a insertar: ");
         String nombre = leerTexto(sc, "Nombre: ");
         int horas = leerEntero(sc, "Horas: ");
 
         ModuloDTO modulo = new ModuloDTO(nombre, horas);
 
         if (dao.insertar(modulo)) {
-            System.out.println("Modulo insertado correctamente");
+            System.out.println("Módulo insertado correctamente");
         } else {
             // Con el DAO corregido, false en INSERT no debería ocurrir;
             // si ocurre, es una anomalía, no un fallo técnico.
-            System.out.println("No se pudo insertar el modulo (0 filas afectadas)");
+            System.out.println("No se pudo insertar el módulo (0 filas afectadas)");
         }
     }
 
     private static void listar(ModuloDAO dao) {
-        System.out.println("\nListado de Modulos");
+        System.out.println("\nListado de Módulos");
         System.out.println("------------------\n");
         List<ModuloDTO> modulos = dao.listarTodos();
         if (modulos.isEmpty()) {
-            System.out.println("(No hay modulos registrados)");
+            System.out.println("(No hay módulos registrados)");
         } else {
             modulos.forEach(System.out::println);
         }
     }
 
     private static void buscarPorId(Scanner sc, ModuloDAO dao) {
-        int id = leerEntero(sc, "\nId de modulo a recuperar: ");
+        int id = leerEntero(sc, "\nId de módulo a recuperar: ");
         ModuloDTO modulo = dao.buscarPorId(id);
         if (modulo != null) {
             System.out.println(modulo);
         } else {
             // null = "no existe", no es un error técnico
-            System.out.println("No existe un modulo con id " + id);
+            System.out.println("No existe un módulo con id " + id);
         }
     }
 
     private static void actualizar(Scanner sc, ModuloDAO dao) {
-        System.out.println("\nDatos del modulo a modificar: ");
+        System.out.println("\nDatos del módulo a modificar: ");
         int id = leerEntero(sc, "Id: ");
 
         // Comprobamos existencia antes de pedir el resto (buena práctica)
         if (dao.buscarPorId(id) == null) {
-            System.out.println("No existe un modulo con id " + id);
+            System.out.println("No existe un módulo con id " + id);
             return;
         }
 
@@ -125,20 +124,20 @@ public class AppModulos {
 
         ModuloDTO modulo = new ModuloDTO(id, nombre, horas);
         if (dao.actualizar(modulo)) {
-            System.out.println("Modulo actualizado correctamente");
+            System.out.println("Módulo actualizado correctamente");
         } else {
             // false aquí = "no se actualizó ninguna fila" (p. ej. carrera con otro proceso)
-            System.out.println("No se actualizó ningún modulo (0 filas afectadas)");
+            System.out.println("No se actualizó ningún módulo (0 filas afectadas)");
         }
     }
 
     private static void eliminar(Scanner sc, ModuloDAO dao) {
-        int id = leerEntero(sc, "\nId de modulo a borrar: ");
+        int id = leerEntero(sc, "\nId de módulo a borrar: ");
         if (dao.eliminar(id)) {
-            System.out.println("Modulo borrado correctamente");
+            System.out.println("Módulo borrado correctamente");
         } else {
             // false = "no existía esa fila", no es error técnico
-            System.out.println("No existe un modulo con id " + id);
+            System.out.println("No existe un módulo con id " + id);
         }
     }
 

@@ -22,36 +22,36 @@ public class ModuloDAOImpl implements ModuloDAO  {
 
     @Override
     public List<ModuloDTO> listarTodos() {
-        String sql = "SELECT id, nombre, horas FROM Modulos";
-        List<ModuloDTO> cursos = new ArrayList<>();
+        String sql = "SELECT * FROM modulos";
+        List<ModuloDTO> modulos = new ArrayList<>();
 
         try (Statement sentenciaSQL = con.createStatement();
              ResultSet rs = sentenciaSQL.executeQuery(sql)) {
 
             while (rs.next()) {
-                cursos.add(mapear(rs));
+                modulos.add(mapear(rs));
             }
-            return cursos;
+            return modulos;
 
         } catch (SQLException e) {
             // Traducir y propagar, conservando la causa
-            throw new DataAccessException("Error al listar todos los cursos", e);
+            throw new DataAccessException("Error al listar todos los modulos", e);
         }
     }
 
     @Override
-    public boolean insertar(ModuloDTO curso) {
+    public boolean insertar(ModuloDTO modulo) {
         String sql = """
-                INSERT INTO Modulos (nombre, horas)
+                INSERT INTO modulos (nombre, horas)
                 VALUES (?, ?)
                 """;
         try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setString(1, curso.getNombre());
-            ps.setInt(2, curso.getHoras());
+            ps.setString(1, modulo.getNombre());
+            ps.setInt(2, modulo.getHoras());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new DataAccessException(
-                "Error al insertar curso: " + curso.getNombre(), e);
+                "Error al insertar modulo: " + modulo.getNombre(), e);
         }
     }
 
@@ -63,13 +63,13 @@ public class ModuloDAOImpl implements ModuloDAO  {
             // false = "no existía esa fila" (info de negocio, no error)
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            throw new DataAccessException("Error al eliminar curso con id " + id, e);
+            throw new DataAccessException("Error al eliminar modulo con id " + id, e);
         }
     }
 
     @Override
     public ModuloDTO buscarPorId(int id) {
-        String sql = "SELECT id, nombre, horas FROM Modulos WHERE id = ?";
+        String sql = "SELECT * FROM Modulos WHERE id = ?";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
@@ -77,25 +77,25 @@ public class ModuloDAOImpl implements ModuloDAO  {
                 return rs.next() ? mapear(rs) : null;
             }
         } catch (SQLException e) {
-            throw new DataAccessException("Error al buscar curso con id " + id, e);
+            throw new DataAccessException("Error al buscar modulo con id " + id, e);
         }
     }
 
     @Override
-    public boolean actualizar(ModuloDTO curso) {
+    public boolean actualizar(ModuloDTO modulo) {
         String sql = """
                 UPDATE Modulos
                 SET nombre = ?, horas = ?
                 WHERE id = ?
                 """;
         try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setString(1, curso.getNombre());
-            ps.setInt(2, curso.getHoras());
-            ps.setInt(3, curso.getId());
+            ps.setString(1, modulo.getNombre());
+            ps.setInt(2, modulo.getHoras());
+            ps.setInt(3, modulo.getId());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new DataAccessException(
-                "Error al actualizar curso con id " + curso.getId(), e);
+                "Error al actualizar modulo con id " + modulo.getId(), e);
         }
     }
 
