@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import ud2.appalumnado.JdbcUtilProp;
 import ud2.appalumnado.instituto.dao.AlumnoDAO;
-import ud2.appalumnado.instituto.dao.AlumnoDAOImplTran;
+import ud2.appalumnado.instituto.dao.AlumnoDAOImpl;
 
 public class AppAlumnosConCurso {
     public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class AppAlumnosConCurso {
 
         AlumnoDAO dao;
         try {
-            dao = new AlumnoDAOImplTran(JdbcUtilProp.getConnection());
+            dao = new AlumnoDAOImpl(JdbcUtilProp.getConnection());
             System.out.println(dao.buscarAlumnoConCurso(alumnoId));
 
             System.out.print("Introduce el id del curso para mostrar su alumnado: ");

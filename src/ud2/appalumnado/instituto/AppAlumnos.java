@@ -3,7 +3,6 @@ package ud2.appalumnado.instituto;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,33 +10,28 @@ import java.util.Scanner;
 
 import ud2.appalumnado.JdbcUtilProp;
 import ud2.appalumnado.instituto.dao.AlumnoDAO;
-import ud2.appalumnado.instituto.dao.AlumnoDAOImplTran;
+import ud2.appalumnado.instituto.dao.AlumnoDAOImpl;
 import ud2.appalumnado.instituto.dto.AlumnoDTO;
 
 public class AppAlumnos {
     public static void main() {
         try (Connection con = JdbcUtilProp.getConnection()) {
-            AlumnoDAO dao = new AlumnoDAOImplTran(con);
+            AlumnoDAO dao = new AlumnoDAOImpl(con);
 
             Scanner sc = new Scanner(System.in);
             do {
                 System.out.println("\nMENU ALUMNOS");
                 System.out.println("============\n");
-                System.out.println("0. Crear BD/Tabla");
                 System.out.println("1. Insertar");
                 System.out.println("2. Listar");
                 System.out.println("3. Buscar por ID");
                 System.out.println("4. Actualizar");
                 System.out.println("5. Eliminar");
                 System.out.println("9. TRANSACCION PRUEBA: Insertar Lista de alumnos");
-                System.out.println("6. Salir");
+                System.out.println("0. Salir");
                 System.out.print("\nSeleccione una opción: ");
                 int opcion = sc.nextInt();
                 switch (opcion) {
-                    case 0:
-                        // CrearBD/Tabla
-                        crearTabla();
-                        break;
                     case 1:
                         // Insertar
                         insertar(sc, dao);
@@ -67,9 +61,9 @@ public class AppAlumnos {
                         alumnos.add(new AlumnoDTO("Lola", "López Ruiz", LocalDate.parse("2000-05-10"), "lola@mail.com",  7.));
                         dao.matricularAlumnos(alumnos);
                         break;
-                    case 6:
+                    case 0:
                         // Salir
-                        System.out.println("Saliendo del programa...");
+                        //System.out.println("Saliendo del programa...");
                         return;
                     default:
                         System.out.println("Opción no válida");
@@ -80,31 +74,6 @@ public class AppAlumnos {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-    }
-
-    private static void crearTabla() throws IOException {
-        System.out.println("\nCreando Tabla/BDs");
-        System.out.println("-----------------\n");
-        try (Connection con = JdbcUtilProp.getConnection(); 
-             Statement statement = con.createStatement();) {
-            String sql = """
-                    CREATE TABLE IF NOT EXISTS alumnos (
-                      id INT PRIMARY KEY AUTOINCREMENT,
-                      nombre VARCHAR (50),
-                      apellidos VARCHAR (100),
-                      fecha_nacimiento DATE,
-                      email VARCHAR(100) UNIQUE,
-                      nota_media DECIMAL (4,2),
-                      curso_id INT,
-                      FOREIGN KEY (curso_id) REFERENCES cursos(id)
-                    );
-                    """;
-
-            statement.executeUpdate(sql);
-        } catch (SQLException e) {
-            System.out.println("ERROR AL CREAR DB/TABLE");
-        }
-               
     }
 
     private static void insertar(Scanner sc, AlumnoDAO dao) {

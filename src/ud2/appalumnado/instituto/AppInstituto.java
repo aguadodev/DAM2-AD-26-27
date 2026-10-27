@@ -11,13 +11,13 @@ import java.util.Scanner;
 
 import ud2.appalumnado.JdbcUtilProp;
 import ud2.appalumnado.instituto.dao.AlumnoDAO;
-import ud2.appalumnado.instituto.dao.AlumnoDAOImplTran;
+import ud2.appalumnado.instituto.dao.AlumnoDAOImpl;
 import ud2.appalumnado.instituto.dto.AlumnoDTO;
 
 public class AppInstituto {
     public static void main() {
         try (Connection con = JdbcUtilProp.getConnection()) {
-            AlumnoDAO dao = new AlumnoDAOImplTran(con);
+            AlumnoDAO dao = new AlumnoDAOImpl(con);
 
             Scanner sc = new Scanner(System.in);
             do {
@@ -26,8 +26,10 @@ public class AppInstituto {
                 System.out.println("1. Gestionar Alumnado");
                 System.out.println("2. Gestionar Cursos");
                 System.out.println("3. Gestionar Módulos");
-                System.out.println("4. Actualizar");
-                System.out.println("6. Salir");
+                System.out.println("4. Buscar Alumno por Curso");
+                System.out.println("5. Alumnos por Curso");
+                System.out.println("6. Alumnos por Curso");
+                System.out.println("0. Salir");
                 System.out.print("\nSeleccione una opción: ");
                 int opcion = sc.nextInt();
                 switch (opcion) {
@@ -56,7 +58,7 @@ public class AppInstituto {
                         alumnos.add(new AlumnoDTO("Lola", "López Ruiz", LocalDate.parse("2000-05-10"), "lola@mail.com",  7.));
                         dao.matricularAlumnos(alumnos);
                         break;
-                    case 6:
+                    case 0:
                         // Salir
                         sc.close();
                         System.out.println("Saliendo del programa...");

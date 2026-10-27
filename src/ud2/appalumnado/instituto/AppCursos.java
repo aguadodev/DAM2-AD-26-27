@@ -3,37 +3,31 @@ package ud2.appalumnado.instituto;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Scanner;
 
 import ud2.appalumnado.JdbcUtilProp;
 import ud2.appalumnado.instituto.dao.CursoDAO;
-import ud2.appalumnado.instituto.dao.CursoDAOImplTran;
+import ud2.appalumnado.instituto.dao.CursoDAOImpl;
 import ud2.appalumnado.instituto.dto.CursoDTO;
 
 public class AppCursos {
     public static void main() {
         try (Connection con = JdbcUtilProp.getConnection()) {
-            CursoDAO dao = new CursoDAOImplTran(con);
+            CursoDAO dao = new CursoDAOImpl(con);
 
             Scanner sc = new Scanner(System.in);
             do {
                 System.out.println("\nMENU CURSOS");
                 System.out.println("============\n");
-                System.out.println("0. Crear BD/Tabla");
                 System.out.println("1. Insertar");
                 System.out.println("2. Listar");
                 System.out.println("3. Buscar por ID");
                 System.out.println("4. Actualizar");
                 System.out.println("5. Eliminar");
-                System.out.println("6. Salir");
+                System.out.println("0. Salir");
                 System.out.print("\nSeleccione una opción: ");
                 int opcion = sc.nextInt();
                 switch (opcion) {
-                    case 0:
-                        // CrearBD/Tabla
-                        crearTabla();
-                        break;
                     case 1:
                         // Insertar
                         insertar(sc, dao);
@@ -56,10 +50,10 @@ public class AppCursos {
                         // Eliminar
                         eliminar(sc, dao);
                         break;
-                    case 6:
+                    case 0:
                         // Salir
-                        sc.close();
-                        System.out.println("Saliendo del programa...");
+                        //sc.close();
+                        //System.out.println("Saliendo del programa...");
                         return;
                     default:
                         System.out.println("Opción no válida");
@@ -70,27 +64,6 @@ public class AppCursos {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-    }
-
-    private static void crearTabla() throws IOException {
-        System.out.println("\nCreando Tabla/BDs");
-        System.out.println("-----------------\n");
-        try (Connection con = JdbcUtilProp.getConnection(); 
-             Statement statement = con.createStatement();) {
-            String sql = """
-                    CREATE TABLE IF NOT EXISTS cursos (
-                      id INTEGER PRIMARY KEY AUTOINCREMENT,
-                      nombre VARCHAR (100),
-                      horas INT
-                    );
-                    """;
-
-            statement.executeUpdate(sql);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-               
     }
 
     private static void insertar(Scanner sc, CursoDAO dao) {

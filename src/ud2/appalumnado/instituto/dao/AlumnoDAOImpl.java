@@ -14,10 +14,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AlumnoDAOImplTran implements AlumnoDAO {
+public class AlumnoDAOImpl implements AlumnoDAO {
     private Connection con;
 
-    public AlumnoDAOImplTran(Connection con) {
+    public AlumnoDAOImpl(Connection con) {
         this.con = con;
     }
 
@@ -164,7 +164,7 @@ public class AlumnoDAOImplTran implements AlumnoDAO {
     @Override
     public AlumnoConCursoDTO buscarAlumnoConCurso(int alumnoId) {
         AlumnoDTO alumno = buscarPorId(alumnoId);
-        CursoDAO cursoDAO = new CursoDAOImplTran(con);
+        CursoDAO cursoDAO = new CursoDAOImpl(con);
         CursoDTO curso = cursoDAO.buscarPorId(alumno.getCurso());
         return new AlumnoConCursoDTO(alumnoId, alumno.getNombre(), curso.getId(), curso.getNombre());
     }

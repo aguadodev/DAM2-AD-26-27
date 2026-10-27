@@ -12,13 +12,13 @@ import java.util.Scanner;
 
 import ud2.appalumnado.JdbcUtilHSQLDB;
 import ud2.appalumnado.instituto.dao.AlumnoDAO;
-import ud2.appalumnado.instituto.dao.AlumnoDAOImplTran;
+import ud2.appalumnado.instituto.dao.AlumnoDAOImpl;
 import ud2.appalumnado.instituto.dto.AlumnoDTO;
 
 public class AppAlumnosHSQLDB {
     public static void main() {
         try (Connection con = JdbcUtilHSQLDB.getConnection()) {
-            AlumnoDAO dao = new AlumnoDAOImplTran(con);
+            AlumnoDAO dao = new AlumnoDAOImpl(con);
 
             Scanner sc = new Scanner(System.in);
             do {

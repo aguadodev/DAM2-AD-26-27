@@ -11,23 +11,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CursoDAOImplTran implements CursoDAO {
+public class CursoDAOImpl implements CursoDAO {
     private Connection con;
 
-    public CursoDAOImplTran(Connection con) {
-         this.con = con; 
+    public CursoDAOImpl(Connection con) {
+        this.con = con;
     }
 
     public List<CursoDTO> listarTodos() {
-        List<CursoDTO> Cursos = null;
+        List<CursoDTO> cursos = null;
 
         String sql = "SELECT * FROM Cursos";
-        try (   Statement sentenciaSQL = con.createStatement();
+        try (Statement sentenciaSQL = con.createStatement();
                 ResultSet rs = sentenciaSQL.executeQuery(sql);) {
 
-            Cursos = new ArrayList<>();
+            cursos = new ArrayList<>();
             while (rs.next()) {
-                Cursos.add(new CursoDTO(
+                cursos.add(new CursoDTO(
                         rs.getInt("id"),
                         rs.getString("nombre"),
                         rs.getInt("horas")));
@@ -35,13 +35,13 @@ public class CursoDAOImplTran implements CursoDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return Cursos;
+        return cursos;
     }
 
     public boolean insertar(CursoDTO Curso) {
         String sql = """
                 INSERT INTO Cursos
-                (nombre, horas)                
+                (nombre, horas)
                 VALUES
                 (?, ?)
                 """;
@@ -79,15 +79,15 @@ public class CursoDAOImplTran implements CursoDAO {
         try (PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
 
             sentenciaSQL.setInt(1, id);
-
-            ResultSet rs = sentenciaSQL.executeQuery();
-            if (rs.next()) {
-                CursoRes = new CursoDTO(
-                        rs.getInt("id"),
-                        rs.getString("nombre"),
-                        rs.getInt("horas"));
+            try (ResultSet rs = sentenciaSQL.executeQuery();) {
+                if (rs.next()) {
+                    CursoRes = new CursoDTO(
+                            rs.getInt("id"),
+                            rs.getString("nombre"),
+                            rs.getInt("horas"));
+                }
             }
-            rs.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
