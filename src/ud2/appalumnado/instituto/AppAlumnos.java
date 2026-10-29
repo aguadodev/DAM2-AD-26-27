@@ -96,8 +96,9 @@ public class AppAlumnos {
 
         AlumnoDTO alumno = new AlumnoDTO(nombre, apellidos, LocalDate.parse(fechaNacimiento), email, notaMedia, curso);
 
-        if (dao.insertar(alumno)) {
-            System.out.println("Alumno insertado correctamente");
+        int id = dao.insertar(alumno);
+        if (id >= 0) {
+            System.out.println("Alumno insertado correctamente con el id " + id);
         } else {
             System.out.println("Error al insertar el alumno: " + alumno);
         }

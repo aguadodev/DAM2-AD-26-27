@@ -7,7 +7,7 @@ import ud2.appalumnado.instituto.dto.AlumnoDTO;
 
 public interface AlumnoDAO {
     public List<AlumnoDTO> listarTodos();
-    public boolean insertar(AlumnoDTO alumno);
+    public int insertar(AlumnoDTO alumno);
     public boolean eliminar(int id);
     public AlumnoDTO buscarPorId(int id);
     public boolean actualizar(AlumnoDTO alumno);

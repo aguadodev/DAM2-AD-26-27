@@ -7,6 +7,7 @@ import java.util.List;
 import ud2.appalumnado.instituto.dto.AlumnoConCursoDTO;
 import ud2.appalumnado.instituto.dto.AlumnoDTO;
 import ud2.appalumnado.instituto.dto.CursoDTO;
+import ud2.appalumnado.instituto.excepciones.DataAccessException;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -45,24 +46,28 @@ public class AlumnoDAOImpl implements AlumnoDAO {
         return alumnos;
     }
 
-    public boolean insertar(AlumnoDTO alumno) {
+    public int insertar(AlumnoDTO alumno) {
         String sql = """
                 INSERT INTO alumnos
-                (nombre, apellidos, fecha_nacimiento, email, nota_media, curso)
+                (nombre, apellidos, fecha_nacimiento, email, nota_media, curso_id)
                 VALUES
                 (?, ?, ?, ?, ?, ?)
                 """;
-        try (PreparedStatement sentenciaSQL = con.prepareStatement(sql);) {
+        try (PreparedStatement sentenciaSQL = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);) {
             sentenciaSQL.setString(1, alumno.getNombre());
             sentenciaSQL.setString(2, alumno.getApellidos());
             sentenciaSQL.setDate(3, Date.valueOf(alumno.getFechaNacimiento()));
             sentenciaSQL.setString(4, alumno.getEmail());
             sentenciaSQL.setDouble(5, alumno.getNotaMedia());
             sentenciaSQL.setInt(6, alumno.getCurso());
-            return sentenciaSQL.executeUpdate() > 0;
+            sentenciaSQL.executeUpdate();
+            ResultSet rs = sentenciaSQL.getGeneratedKeys();
+            rs.next();
+            return rs.getInt(1);
+
         } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
+            throw new DataAccessException(
+                "Error al insertar alumno: ", e);
         }
     }
 
@@ -142,7 +147,7 @@ public class AlumnoDAOImpl implements AlumnoDAO {
 
             // Ejecutar sentencias de la transacción
             for (AlumnoDTO alumnoDTO : alumnos) {
-                if (!insertar(alumnoDTO))
+                if (insertar(alumnoDTO) >= 0)
                     throw new SQLException();
             }
 
